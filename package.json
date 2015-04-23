@@ -1,0 +1,16 @@
+{
+  "name": "roots",
+  "version": "0.0.0",
+  "description": "[![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)",
+  "main": "Gruntfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "grunt-contrib-watch": "~0.6.1",
+    "grunt-contrib-compass": "~0.9.1",
+    "grunt": "~0.4.5"
+  }
+}

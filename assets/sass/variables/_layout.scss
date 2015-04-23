@@ -1,0 +1,84 @@
+$banner-height: 435px;
+
+body {
+  main {
+    @include span(12);
+    @include container-padding();
+    @include breakpoint($desk){
+      @include span(9);
+    }
+  }
+  aside {
+    @include span(12);
+    @include container-padding();
+  }
+  &.full-width {
+    main {
+      @include span(12);
+      @include container-padding();
+    }
+  }
+  &.left-sidebar {
+    @include breakpoint($desk) {
+      main {
+        @include span(isolate 9 at 4);
+        @include container-padding();
+      }
+      aside {
+        &.primary {
+          @include span(isolate 3 at 1 no-gutters);
+          padding-left:0;
+          padding-right:0;
+        }
+      }
+    }
+  }
+  &.right-sidebar {
+    @include breakpoint($desk) {
+      main {
+        @include span(isolate 9 at 1);
+        @include container-padding();
+      }
+      aside {
+        &.secondary {
+          @include span(isolate 3 at 10 no-gutters);
+          padding-left:0;
+          padding-right:0;
+        }
+      }
+    }
+  }
+  &.left-sidebar.right-sidebar {
+    @include breakpoint($tab) {
+      aside {
+        &.primary {
+          @include span(6);
+          @include container-padding();
+
+        }
+        &.secondary {
+          @include span(6);
+          @include container-padding();
+
+        }
+      }
+    }
+    @include breakpoint($desk) {
+      main {
+        @include span(isolate 6 at 4);
+      }
+      aside {
+        &.primary {
+          @include span(isolate 3 at 1 no-gutters);
+          padding-left:0;
+          padding-right: 0;
+        }
+        &.secondary {
+          @include span(isolate 3 at 10 no-gutters);
+          padding-left: 0;
+          padding-right: 0;
+        }
+      }
+    }
+  }
+}

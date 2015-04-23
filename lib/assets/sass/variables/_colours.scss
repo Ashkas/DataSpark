@@ -1,0 +1,35 @@
+/* Base */
+
+$base-link-primary: #2685bf;
+$base-link-secondary: #e1156c;
+$base-link-primary-hover:$base-link-secondary;
+$base-body-copy: #454547;
+$base-title: #323232;
+$base-hr-border: #e4e4e4;
+
+/* Menu */
+$menu-dropdown-links: #144b96;
+
+/* Header */
+$header-underline: #c9c9c9;
+
+/* Carousel */
+$carousel-tab-active: #f7f7f7;
+$carousel-tab-bg: #f1f1f1;
+$carousel-tab-border: #e6e6e6;
+
+/* Body */
+$body-caption: $carousel-tab-bg;
+
+/* Forms */
+$error-message-bg: #fbe3e4;
+$error-border: #de2226;
+$error-input-bg: #efdbdb;
+$error-text: #e33223;
+
+/* Sidebar */
+$sidebar-bg: $carousel-tab-bg;
+
+/* Footer */
+$footer-bg: $carousel-tab-bg;
+
