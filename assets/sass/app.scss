@@ -26,6 +26,7 @@
 @import "variables/layout";
 @import "variables/colours";
 @import "variables/typography";
+@import "variables/custom-fonts";
 @import "variables/forms";
 
 /**
@@ -282,12 +283,18 @@ a {
         min-height: 75px;
         .topbar {
           min-height: 75px;
+          padding-top: 10px;
           .wrap {
             .branding {
-              a.brand {
-                @include transition(0.3s);
-                width: 140px;
-              }
+	            
+	            @include breakpoint($tab){
+	            	margin-top: em-calc(14px);   
+	            }
+	            
+	            a.brand {
+	              @include transition(0.3s);
+	              width: 140px;
+	            }
             }
 /*
             .menu-expand {
@@ -303,6 +310,7 @@ a {
             #menu-secondary-nav {
               @include transition(0.3s);
               margin-top: em-calc(5px);
+              margin-bottom: em-calc(10px);
             }
           }
         }
@@ -332,6 +340,10 @@ a {
         @include breakpoint($tab){
           @include span(4);
         }
+        @include breakpoint($desk){
+	        margin-top: em-calc(5px);
+	    }
+        
         a {
           &.brand {
             display: block;
@@ -384,9 +396,11 @@ a {
 #menu-secondary-nav {
   list-style: none;
   padding:0;
+  
   @include breakpoint($tab){
     display: block;
     float: right;
+    margin: 0px 0px 20px;
   }
   li {
     display: block;

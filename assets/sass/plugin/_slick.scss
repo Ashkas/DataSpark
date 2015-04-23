@@ -8,8 +8,8 @@ $slick-loader-path: "./" !default;
 $slick-arrow-color: black !default;
 $slick-dot-color: black !default;
 $slick-dot-color-active: $slick-dot-color !default;
-$slick-prev-character: '\2190' !default;
-$slick-next-character: '\2192' !default;
+$slick-prev-character: '\e600' !default;
+$slick-next-character: '\e601' !default;
 $slick-dot-character: '\2022' !default;
 $slick-dot-size: 6px !default;
 $opacity-default: .75;
@@ -183,7 +183,7 @@ $opacity-not-active: .25;
     }
 }
 .slick-prev:before, .slick-next:before {
-    font-family: $slick-font-family;
+    font-family: $icomoon-font-family;
     font-size: 20px;
     line-height: 1;
     color: $slick-arrow-color;
@@ -192,29 +192,16 @@ $opacity-not-active: .25;
     -moz-osx-font-smoothing: grayscale;
 }
 .slick-prev {
-    left: -25px;
-    [dir="rtl"] & {
-        left:  auto;
-        right: -25px;
-    }
+    left: 20px;
     &:before {
         content: $slick-prev-character;
-        [dir="rtl"] & {
-            content: $slick-next-character;
-        }
     }
 }
 .slick-next {
-    right: -25px;
-    [dir="rtl"] & {
-        left:  -25px;
-        right: auto;
-    }
+    right: 20px;
+
     &:before {
         content: $slick-next-character;
-        [dir="rtl"] & {
-            content: $slick-prev-character;
-        }
     }
 }
 
