@@ -2,7 +2,7 @@
  * Created by dg on 23/10/14.
  */
 $('.carousel').slick({
-    dots: true,
+    dots: false,
     arrows: true,
     autoplay: true,
     pauseOnHover: false,
