@@ -468,12 +468,15 @@ a {
       color:#FFFFFF;
       padding-top: 2em;
       padding-bottom:2em;
+      min-height: 200px;
+	      
       @include container-padding();
       @include breakpoint($tab) {
         padding:0;
         color:$base-body-copy;
         padding-right:20%;
         @include vertical-align;
+        min-height: none;
       }
       .headline {
         font-size:em-calc(18px);

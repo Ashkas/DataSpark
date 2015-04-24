@@ -31,13 +31,16 @@ $('.carousel').slick({
         var number = i + 1;
         return '<p>'+tabTitle+'</p><div class="tab-'+ number +'" data-tab="'+i+'"><span class="load-bar" style="width:100%"></span></div>';
     },
-/*
     responsive: [
         {
             // Doesn't include 15px sidebar therefore 768 - 15.
             breakpoint: 753,
             settings: {
-                slidesToShow: $('.carousel .single-item').size(),
+                //slidesToShow: $('.carousel .single-item').size(),
+			    arrows: false,
+			    autoplay: false,
+			    //adaptiveHeight: true,
+/*
                 dots: false,
                 speed: 0,
                 onInit: function(slide, index){
@@ -53,10 +56,10 @@ $('.carousel').slick({
                   // Backup if first misses
                   setTimeout(firstSlide, 500)
                 }
+*/
             }
         }
     ]
-*/
 });
 
 
