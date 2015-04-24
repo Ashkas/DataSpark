@@ -445,10 +445,13 @@ a {
    ========================================================================== */
 .carousel {
   .single-item {
-    min-width:100% !important;
+	  min-width: 0 !important;
+    //min-width:100% !important;
+/*
     @include breakpoint($tab) {
       min-width: 0 !important;
     }
+*/
   }
 
   .item {
