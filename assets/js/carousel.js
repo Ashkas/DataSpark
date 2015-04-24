@@ -31,6 +31,7 @@ $('.carousel').slick({
         var number = i + 1;
         return '<p>'+tabTitle+'</p><div class="tab-'+ number +'" data-tab="'+i+'"><span class="load-bar" style="width:100%"></span></div>';
     },
+/*
     responsive: [
         {
             // Doesn't include 15px sidebar therefore 768 - 15.
@@ -55,6 +56,7 @@ $('.carousel').slick({
             }
         }
     ]
+*/
 });
 
 
@@ -93,6 +95,7 @@ $('.carousel-pager .slick-dots li').click(
         }
     });
 
+/*
 $('.client-carousel').slick({
   dots: false,
   slidesToShow: 3,
@@ -121,3 +124,4 @@ $('.client-carousel').slick({
     }
   ]
 })
+*/

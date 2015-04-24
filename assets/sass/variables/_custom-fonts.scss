@@ -21,17 +21,17 @@ $icomoon-font-family: "icomoon" !default;
 @if $icomoon-font-family == "icomoon" {
 	@font-face {
 		font-family: 'icomoon';
-		src:url('icomoon.eot?-w2cyt3');
-		src:url('icomoon.eot?#iefix-w2cyt3') format('embedded-opentype'),
-			url('icomoon.woff?-w2cyt3') format('woff'),
-			url('icomoon.ttf?-w2cyt3') format('truetype'),
-			url('icomoon.svg?-w2cyt3#icomoon') format('svg');
+		src:icomoon-font-url('icomoon.eot?-w2cyt3');
+		src:icomoon-font-url('icomoon.eot?#iefix-w2cyt3') format('embedded-opentype'),
+			icomoon-font-url('icomoon.woff?-w2cyt3') format('woff'),
+			icomoon-font-url('icomoon.ttf?-w2cyt3') format('truetype'),
+			icomoon-font-url('icomoon.svg?-w2cyt3#icomoon') format('svg');
 		font-weight: normal;
 		font-style: normal;
 	}
 }
 
-[class^="icon-"], [class*=" icon-"] {
+[class^="icon-"], [class*=" icon-"], .slick-prev, .slick-next {
 	font-family: 'icomoon';
 	speak: none;
 	font-style: normal;
