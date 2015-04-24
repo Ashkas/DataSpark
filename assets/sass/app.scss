@@ -469,6 +469,15 @@ a {
       padding-top: 2em;
       padding-bottom:2em;
       min-height: 200px;
+      max-width: 640px;
+      
+      @include breakpoint($desk){
+	      max-width: 900px;
+	  }
+      
+      @include breakpoint($desk-large){
+	      max-width: 1036px;
+	  }
 	      
       @include container-padding();
       @include breakpoint($tab) {
@@ -487,6 +496,14 @@ a {
           font-size:em-calc(34px);
         }
       }
+      .body {
+	      margin-bottom: em-calc(20px);
+	      
+	      @include breakpoint($tab){
+		  	margin-bottom: em-calc(30px);  
+		  }
+      }
+      
       p {
         font-size:em-calc(14px);
         font-family: $font-stack;
@@ -501,23 +518,46 @@ a {
         }
       }
       a {
-        color: #FFFFFF;
-        border-bottom:1px solid #FFFFFF;
-        font-size: em-calc(16px);
-        font-weight: 600;
-        &:hover,&:focus {
-          text-decoration:none;
-          border-bottom:none;
-        }
-        @include breakpoint($tab){
-          color: $base-link-secondary;
-          text-decoration: none;
-          border-bottom:none;
-          font-size:em-calc(25px);
-          &:hover, &:focus {
-            border-bottom:1px solid $base-link-secondary;
-          }
-        }
+			color: #FFFFFF;
+			border-bottom:1px solid #FFFFFF;
+			font-size: em-calc(16px);
+			font-weight: 600;
+		&:hover,&:focus {
+			text-decoration:none;
+			border-bottom:none;
+		}
+		@include breakpoint($tab){
+			color: $base-link-secondary;
+			text-decoration: none;
+			border-bottom:none;
+			//font-size:em-calc(25px);
+			&:hover, &:focus {
+				border-bottom:1px solid $base-link-secondary;
+			}
+		}
+		
+		&.cta_button {
+			border-bottom: none;
+			text-align: left;
+			display: initial;
+			background: white;
+			color: $base-link-secondary;
+			//border: 1px solid $base-link-secondary;
+			
+			&:hover, &:focus {
+				color: $base-link-primary;
+			}
+			
+			@include breakpoint($tab){
+				background: $base-link-secondary;
+				color: white;
+				
+				&:hover, &:focus {
+					background: $base-link-primary;
+					color: white;
+				}
+			}
+		}
       }
     }
   }
@@ -690,6 +730,14 @@ a {
 }
 
 /* ==========================================================================
+   Buttons and inputs
+   ========================================================================== */
+ .cta_button {
+	@include cta-button();
+}
+
+
+/* ==========================================================================
    Content
    ========================================================================== */
 // Homepage Mobile hero image
@@ -762,7 +810,7 @@ a {
 
 .latest {
   @include breakpoint($desk) {
-    margin-bottom:4em;
+    margin-bottom:em-calc(20px);
   }
   .item {
     clear:both;
@@ -786,9 +834,12 @@ a {
 		width:40%;
       }
       a {
+	    display: block;
+	    
         img {
           width:100%;
-          margin-bottom: em-calc(10px);
+          display: block;
+         // margin-bottom: em-calc(10px);
 
           @include breakpoint($tab){
 				max-width: 250px;

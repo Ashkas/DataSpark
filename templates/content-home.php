@@ -76,6 +76,7 @@ $args = array(
         <div class="title">
           <h2><a href="<?php echo $permalink; ?>"><?php echo $title; ?></a></h2>
         </div>
+        <div class="clearfix"></div>
       </div>
     <?php endwhile; ?>
   </div>

@@ -64,7 +64,7 @@ function get_image_url($imgID, $size='full'){
 function get_cta_link( $text = '', $url = '' ) {
   $output = '';
   if(!empty($url) && !empty($text)) {
-    $output = '<a href="'. $url .'">'. $text .'</a>';
+    $output = '<a href="'. $url .'" class="cta_button">'. $text .'</a>';
   }
   return $output;
 }

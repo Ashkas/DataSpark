@@ -49,7 +49,15 @@ $icomoon-font-family: "icomoon" !default;
 	content: "\e600";
 }
 
-.icon-arrow-right:before {
+.icon-chevron-right:before {
 	content: "\e601";
+}
+
+.icon-arrow-left-big:before {
+	content: "\e602";
+}
+
+.icon-arrow-right-big:before {
+	content: "\e603";
 }
 

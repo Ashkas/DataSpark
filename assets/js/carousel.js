@@ -4,8 +4,8 @@
 $('.carousel').slick({
     dots: false,
     arrows: true,
-    autoplay: true,
-    pauseOnHover: false,
+    autoplay: false,
+    pauseOnHover: true,
     draggable: true,
     speed: 200,
     autoplaySpeed: 6000,

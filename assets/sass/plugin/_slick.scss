@@ -8,11 +8,11 @@ $slick-loader-path: "./" !default;
 $slick-arrow-color: black !default;
 $slick-dot-color: black !default;
 $slick-dot-color-active: $slick-dot-color !default;
-$slick-prev-character: '\e600' !default;
-$slick-next-character: '\e601' !default;
+$slick-prev-character: '\e602' !default;
+$slick-next-character: '\e603' !default;
 $slick-dot-character: '\2022' !default;
 $slick-dot-size: 6px !default;
-$opacity-default: .75;
+$opacity-default: .6;
 $opacity-on-hover: 1;
 $opacity-not-active: .25;
 
@@ -157,22 +157,32 @@ $opacity-not-active: .25;
 .slick-next {
     position: absolute;
     display: block;
-    height: 20px;
-    width: 20px;
+    height: 35px;
+    width: 35px;
     line-height: 0;
     font-size: 0;
     cursor: pointer;
     background: transparent;
-    color: transparent;
     top: 50%;
     margin-top: -10px;
     padding: 0;
     border: none;
+    //border: 1px solid $slick-arrow-color;
+    //border-radius: 35px 35px 35px 35px;
     outline: none;
+    color: $slick-arrow-color;
+    opacity: $opacity-default;
+    
+    @include breakpoint($desk-large){
+		height: 45px;
+		width: 45px;   
+	}
+    
     &:hover, &:focus {
       outline: none;
       background: transparent;
-      color: transparent;
+      opacity: $opacity-on-hover;
+      
       &:before {
         opacity: $opacity-on-hover;
       }
@@ -180,28 +190,42 @@ $opacity-not-active: .25;
     &.slick-disabled:before {
         opacity: $opacity-not-active;
     }
+    
+    
 }
 .slick-prev:before, .slick-next:before {
     font-family: $icomoon-font-family;
-    font-size: 20px;
+    font-size: 35px;
     line-height: 1;
     color: $slick-arrow-color;
     opacity: $opacity-default;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    
+    @include breakpoint($desk-large){
+		font-size: 50px;   
+	}
 }
 .slick-prev {
-    left: 20px;
+    left: 10px;
     &:before {
         content: $slick-prev-character;
     }
+    
+    @include breakpoint($desk){
+		left: 20px;   
+	}
 }
 .slick-next {
-    right: 20px;
+    right: 10px;
 
     &:before {
         content: $slick-next-character;
     }
+    
+    @include breakpoint($desk){
+		right: 20px;   
+	}
 }
 
 /* Dots */
