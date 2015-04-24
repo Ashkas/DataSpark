@@ -57,9 +57,3 @@
   </div>
 </header>
 <span class="waypoint"></span>
-<?php $hero = get_image_markup(get_field('hp_mobile_hero_image','','full')); ?>
-<?php if($hero): ?>
-  <div class="mobile-hero">
-    <?php echo $hero; ?>
-  </div>
-<?php endif; ?>
