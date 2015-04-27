@@ -69,6 +69,13 @@ function get_cta_link( $text = '', $url = '' ) {
   return $output;
 }
 
+function get_cta_link_alt( $text = '', $url = '' ) {
+  $output = '';
+  if(!empty($url) && !empty($text)) {
+    $output = '<a href="'. $url .'" class="cta_button cta_button_alt">'. $text .'</a>';
+  }
+  return $output;
+}
 
 function get_email_markup($email, $text='') {
   if(empty($text)) {

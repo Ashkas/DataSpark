@@ -52,6 +52,19 @@
 }
 
 
+.mobile_device {
+	display: block !important;
+	visibility: visible !important;
+}
+
+@include breakpoint($tab){
+	
+	.mobile_device {
+		display: none !important;
+		visibility: hidden !important;	
+	}
+}
+
 /* ==========================================================================
    Base
    ========================================================================== */
@@ -112,9 +125,6 @@ a {
         padding:1.5em 0;
         .related-footer {
 	        margin-bottom: em-calc(20px);
-          a {
-            @include secondary-link;
-          }
         }
       }
       &:first-of-type {
@@ -809,9 +819,6 @@ a {
 // Homepage displays latest content
 
 .latest {
-  @include breakpoint($desk) {
-    margin-bottom:em-calc(20px);
-  }
   .item {
     clear:both;
     margin-bottom:em-calc(20px);
@@ -839,10 +846,11 @@ a {
         img {
           width:100%;
           display: block;
-         // margin-bottom: em-calc(10px);
+          margin-bottom: em-calc(10px);
 
           @include breakpoint($tab){
 				max-width: 250px;
+				margin-bottom: 0px;
 				//width:190px;
 				max-widows: none;
           }
@@ -866,12 +874,65 @@ a {
   }
 }
 .content {
-  @include breakpoint($tab){
-    @include container;
-  }
-  @include breakpoint($desk){
-    @include site-maxwidth;
-  }
+	
+	a.cta_button {
+		border-bottom: none;
+		text-align: left;
+		display: initial;
+		background: $base-link-secondary;
+		color: white;
+		
+		&:hover, &:focus {
+			color: $base-link-primary;
+			color: white;
+		}
+	}
+	
+	a.cta_button_alt {
+		
+		background: $base-link-primary;
+		
+		&:hover, &:focus {
+			background: $base-link-secondary;
+		}
+	}
+	
+	.sidebar {
+			
+		a.cta_button {
+			@include secondary-link;
+			background: $base-link-secondary !important;
+			
+			&:hover, &:focus {
+				background: $base-link-primary !important;
+			}
+		}
+		
+		a.cta_button_alt {
+			
+			background: $base-link-primary !important;
+			
+			&:hover, &:focus {
+				background: $base-link-secondary !important;
+			}
+		}
+	}
+	
+	@include breakpoint($tab){
+		
+		.sidebar {
+			
+			a.cta_button {
+				display: inline !important;
+			}
+		}
+		
+		@include container;
+	}
+  
+	@include breakpoint($desk){
+		@include site-maxwidth;
+	}
 }
 
 /* ==========================================================================
@@ -889,7 +950,20 @@ a {
 }
 .main {
   line-height: 1.5em;
+  margin-bottom: em-calc(40px);
 }
+
+.content {
+	.main {
+		.cta_button {
+		  
+			margin: 0px auto !important;
+			text-align: center !important;
+			display: block !important;
+		}
+	}
+}
+
 /* Gallery Shortcode */
 .gallery-row { padding: 15px 0; }
 

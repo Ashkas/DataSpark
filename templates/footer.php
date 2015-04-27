@@ -1,36 +1,46 @@
+<?php // ACF variables
+	$section_title = get_field('footer_section_one_title', 'option');
+	$section_expert = get_field('footer_section_one_expert', 'option');	
+	$section_body = get_field('footer_section_one_body', 'option');
+?>
+
 <footer class="content-info" role="contentinfo">
   <div class="container">
-    <div class="contact-info">
-      <div class="content wrap">
-        <?php if(get_field('footer_section_one_title', 'option')): ?>
-          <h2><?php the_field('footer_section_one_title', 'option'); ?></h2>
-        <?php endif; ?>
-
-        <?php if(get_field('footer_section_one_expert', 'option')): ?>
-          <?php while(has_sub_field('footer_section_one_expert', 'option')): ?>
-            <div class="experts">
-              <div class="image-wrap">
-                <?php if(get_sub_field('profile_image')): ?>
-                  <?php $profile_id = get_sub_field('profile_image'); ?>
-                <?php endif; ?>
-                <div class="profile-image"><?php echo get_image_markup($profile_id,'','expert-profile'); ?></div>
-              </div>
-              <div class="expert-details">
-                <h4 class="name"><?php the_sub_field('expert_name'); ?></h4>
-                <div class="info"><?php the_sub_field('expert_info'); ?></div>
-                <div class="email"><?php echo get_email_markup(get_sub_field('expert_email'),get_sub_field('email_text')); ?></div>
-              </div>
-            </div>
-          <?php endwhile; ?>
-        <?php endif; ?>
-
-        <?php if(get_field('footer_section_one_body', 'option')): ?>
-          <div class="location">
-            <p><?php the_field('footer_section_one_body', 'option'); ?></p>
-          </div>
-        <?php endif; ?>
-      </div>
-    </div>
+	  
+	  <?php if($section_title || $section_expert || $section_body): ?>
+	    <div class="contact-info">
+	      <div class="content wrap">
+	        <?php if($section_title): ?>
+	          <h2><?php the_field('footer_section_one_title', 'option'); ?></h2>
+	        <?php endif; ?>
+	
+	        <?php if($section_expert): ?>
+	          <?php while(has_sub_field('footer_section_one_expert', 'option')): ?>
+	            <div class="experts">
+	              <div class="image-wrap">
+	                <?php if(get_sub_field('profile_image')): ?>
+	                  <?php $profile_id = get_sub_field('profile_image'); ?>
+	                <?php endif; ?>
+	                <div class="profile-image"><?php echo get_image_markup($profile_id,'','expert-profile'); ?></div>
+	              </div>
+	              <div class="expert-details">
+	                <h4 class="name"><?php the_sub_field('expert_name'); ?></h4>
+	                <div class="info"><?php the_sub_field('expert_info'); ?></div>
+	                <div class="email"><?php echo get_email_markup(get_sub_field('expert_email'),get_sub_field('email_text')); ?></div>
+	              </div>
+	            </div>
+	          <?php endwhile; ?>
+	        <?php endif; ?>
+	
+	        <?php if($section_body): ?>
+	          <div class="location">
+	            <p><?php the_field('footer_section_one_body', 'option'); ?></p>
+	          </div>
+	        <?php endif; ?>
+	      </div>
+	    </div>
+	<?php endif; //if $section_title || $section_expert || $section_body ?>
+	
     <div class="clients">
       <div class="content wrap">
         <?php if(get_field('footer_our_clients_title', 'option')): ?>

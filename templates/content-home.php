@@ -82,3 +82,18 @@ $args = array(
   </div>
 <?php endif; ?>
 <?php wp_reset_postdata(); ?>
+
+<?php if(get_field('header_cta', 'option')): ?>
+	<div class="mobile_device">
+		<?php while(has_sub_field('header_cta', 'option')): ?>
+			<?php $link = get_cta_link(get_sub_field('header_cta_title'),get_sub_field('header_cta_url')); ?>
+			<?php if($link): ?>
+				<?php if(get_sub_field('header_cta_web_only') == TRUE): ?>
+				
+                <?php else: ?>
+	                <?php echo $link; ?>
+                <?php endif; ?>
+            <?php endif; ?>
+		<?php endwhile; ?>
+	</div><!--.button-->
+<?php endif; ?>

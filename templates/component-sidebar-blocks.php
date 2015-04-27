@@ -103,14 +103,13 @@ if ( ! defined( 'WPINC' ) ) { die; } // If this file is called directly, abort. 
 						  endif;
 						endif ?>
 					</div><!-- /.snippet -->
-	            <?php endforeach;
-            
-	        endif; //get_sub_field
+	            <?php endforeach; 
+	        endif; //get_sub_field 
         endif; //$insight_type
         
         if( have_rows('rcb_footer_link') ): ?>
           <?php while ( have_rows('rcb_footer_link') ) : the_row(); ?>
-            <?php $footer_link = get_cta_link(get_sub_field('rcb_footer_link_title'),get_sub_field('rcb_footer_link_page_link')); ?>
+            <?php $footer_link = get_cta_link_alt(get_sub_field('rcb_footer_link_title'),get_sub_field('rcb_footer_link_page_link')); ?>
             <?php if($footer_link): ?>
               <div class="related-footer">
                 <?php echo $footer_link; ?>
@@ -118,5 +117,19 @@ if ( ! defined( 'WPINC' ) ) { die; } // If this file is called directly, abort. 
             <?php endif; ?>
           <?php endwhile; ?>
         <?php endif; ?>
+        <?php if(get_field('header_cta', 'option')): ?>
+			<div class="mobile_device">
+				<?php while(has_sub_field('header_cta', 'option')): ?>
+					<?php $link = get_cta_link(get_sub_field('header_cta_title'),get_sub_field('header_cta_url')); ?>
+					<?php if($link): ?>
+						<?php if(get_sub_field('header_cta_web_only') == TRUE): ?>
+						
+		                <?php else: ?>
+			                <?php echo $link; ?>
+		                <?php endif; ?>
+		            <?php endif; ?>
+				<?php endwhile; ?>
+			</div><!--.button-->
+		<?php endif; // header_cta ?>
       </div> <!-- /.block.article -->
     <?php endif; ?>
