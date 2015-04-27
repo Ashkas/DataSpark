@@ -54,6 +54,24 @@ function get_image_url($imgID, $size='full'){
   }
 }
 
+/**
+ * Track Google goals in Analytics
+ */
+
+function add_conversion_tracking_code($button, $form) {
+	$dom = new DOMDocument();
+	$dom->loadHTML($button);
+	$input = $dom->getElementsByTagName('input')->item(0);
+	if ($input->hasAttribute('onclick')) {
+		$input->setAttribute("onclick","ga('send', 'event', { eventCategory: 'Request Form', eventAction: 'Request Submission', eventLabel: 'Form:'});".$input->getAttribute("onclick"));
+	} else {
+		$input->setAttribute("onclick","ga('send', 'event', { eventCategory: 'Request Form', eventAction: 'Request Submission', eventLabel: 'Form:'});");
+	}
+	return $dom->saveHtml();
+}
+
+add_filter( 'gform_submit_button_1', 'add_conversion_tracking_code', 10, 2);
+
 
 /**
  * @param string $text
