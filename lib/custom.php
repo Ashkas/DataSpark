@@ -73,6 +73,36 @@ function add_conversion_tracking_code($button, $form) {
 add_filter( 'gform_submit_button_1', 'add_conversion_tracking_code', 10, 2);
 
 
+// Custom image insertion for responsivePicture element
+function responsive_insert_image($html, $id, $caption, $title, $align, $url, $size) {
+
+	$large_wide = wp_get_attachment_image_src($banner_image,'large-wide');
+	$mobile_wide = wp_get_attachment_image_src($banner_image,'large-wide-mobile');
+	
+	$image_meta = wp_get_attachment_metadata($id);
+	
+	// Remove quote marks
+
+	$alt = get_post_meta($id, '_wp_attachment_image_alt', true);
+	$image_url = wp_get_attachment_image_src( $id, $size, false, false );
+	
+	if($size == 'large') :
+		$image_url_mobile = wp_get_attachment_image_src( $id, 'medium', false, false );
+	
+		$custom_insert = "<picture>";
+		$custom_insert .= '<!--[if IE 9]><video style="display: none;"><![endif]-->
+					<source srcset="'.$image_url[0].'" media="(min-width: 760px)">
+				<!--[if IE 9]></video><![endif]-->';
+		$custom_insert .= "<img src='".$image_url_mobile[0]."' alt='$alt' class='size-".$size."' />";
+		$custom_insert .= "</picture>";
+	else: 
+		$custom_insert = "<img src='".$image_url[0]."' alt='".$alt."' class='size-".$size." align$align $size' />";
+	endif;
+	
+	return str_replace('<br>', "", $custom_insert); // <br> inserted by WP
+}
+add_filter( 'image_send_to_editor', 'responsive_insert_image', 10, 9 );
+
 /**
  * @param string $text
  * @param string $url

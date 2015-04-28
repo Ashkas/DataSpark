@@ -698,15 +698,20 @@ a {
 }
 
 .image-banner {
-  .item {
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    height: 225px;
-    @include breakpoint($tab){
-      height: $banner-height;
-    }
-  }
+	margin: 0 auto;
+	max-height: 225px;
+	overflow: hidden;
+	width: 100%;
+	z-index: 1;
+	
+	@include breakpoint($tab){
+		max-height: $banner-height;
+	}
+	
+	img {
+		width: 100%;
+		max-width: none;
+	}
 }
 .breadcrumbs-wrap {
   @include container;
@@ -985,6 +990,13 @@ a {
 .hentry .entry-content { }
 .hentry footer { }
 
+.entry-content {
+	
+	img {
+		max-width: none;
+		width: 100%;
+	}
+}
 
 
 /* ==========================================================================

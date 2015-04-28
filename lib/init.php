@@ -12,10 +12,10 @@ function roots_setup() {
     'secondary_navigation' => __('Secondary Navigation', 'roots')
   ));
 
-/* Control compression of files uploaded, set JPG compression to 65% */
+/* Control compression of files uploaded, set JPG compression to 70% */
 
 add_filter( 'jpeg_quality', 'jpeg_full_quality' );
-function jpeg_full_quality( $quality ) { return 65; }
+function jpeg_full_quality( $quality ) { return 70; }
 
   // Add post thumbnails (http://codex.wordpress.org/Post_Thumbnails)
   add_theme_support('post-thumbnails');
@@ -27,8 +27,8 @@ function jpeg_full_quality( $quality ) { return 65; }
   add_image_size('insight-thumb', 250, 162, array('center', 'center')); 
   add_image_size('video-cover-thumb', 650, 355, array('center', 'center'));
   add_image_size('expert-profile', 180, 180, true ); // (cropped)
-  add_image_size('large-wide', 1440, 300, array('center', 'center')); // 300px wide (and unlimited height)
-  add_image_size('large-wide-mobile', 480, 160, array('center', 'center')); // 300px wide (and unlimited height)  
+  add_image_size('large-wide', 1440, 400, array('center', 'center')); 
+  add_image_size('large-wide-mobile', 560, 233, array('center', 'center')); 
 
   // Add post formats (http://codex.wordpress.org/Post_Formats)
   // add_theme_support('post-formats', array('aside', 'gallery', 'link', 'image', 'quote', 'status', 'video', 'audio', 'chat'));

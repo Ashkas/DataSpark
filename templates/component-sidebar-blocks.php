@@ -66,7 +66,7 @@ if ( ! defined( 'WPINC' ) ) { die; } // If this file is called directly, abort. 
       </ul>
     </div> <!-- /.block.menu -->
 
-    <?php elseif( get_row_layout() == 'related_content_block' ): ?>
+    <?php elseif( get_row_layout() == 'related_content_block' && !is_single()): ?>
       <div class="block info article">
 	      
         <?php if( get_sub_field('rcb_section_title')): ?>
@@ -106,6 +106,59 @@ if ( ! defined( 'WPINC' ) ) { die; } // If this file is called directly, abort. 
 	            <?php endforeach; 
 	        endif; //get_sub_field 
         endif; //$insight_type
+        
+        elseif( is_single()): ?>
+      <div class="block info article">
+	      
+      <h4>DataSpark infographics</h4>
+        
+		<?php $args = array(
+			'posts_per_page' => 3,
+			'post_type' => 'inside',
+			'tax_query' => array(
+				array(
+				    'taxonomy'  => 'type',
+				    'field'     => 'ID',
+				    'terms' => 'Infographics', 
+				    )
+				),
+		);
+		
+		$query = null;
+			
+		$key = 'sidebar-infographics';
+		$query = wp_cache_get( $key, $group );
+		if ( $query == '' ) {
+		    $query = get_posts( $args );
+			wp_cache_set( $key, $query, $group, $expire );
+		}
+										
+		foreach( $query as $post ) :	setup_postdata($post); ?>
+			<div class="snippet">
+				<?php if(get_sub_field('display_thumbnails') == TRUE):
+				  $thumb = get_image_markup(get_field('post_thumbnail',$post->ID), get_permalink( $post->ID ),'featured-small');
+				  if($thumb):
+				    echo $thumb;
+				  endif;
+				endif; ?>
+				<h3><a href="<?php echo get_permalink( $post->ID ); ?>"><?php echo $post->post_title; ?></a></h3>
+				<?php if(get_sub_field('show_excerpt') == TRUE):
+				  if(!empty($post->post_excerpt)): ?>
+				    <p><?php echo $post->post_excerpt; ?></p>
+				    <?php if(get_sub_field('display_read_more_link') == TRUE): ?>
+				      <p><a class="readmore" href="<?php echo get_permalink( $post->ID ); ?>">More</a></p>
+				    <?php endif;
+				  else: ?>
+				    <p><?php echo wp_trim_words($article->post_content, 20); ?></p>
+				    <?php if(get_sub_field('display_read_more_link') == TRUE): ?>
+				      <p><a class="readmore" href="<?php echo get_permalink( $post->ID ); ?>">More</a></p>
+				    <?php endif;
+				  endif;
+				endif ?>
+			</div><!-- /.snippet -->
+        <?php endforeach; 
+            
+        wp_reset_postdata();
         
         if( have_rows('rcb_footer_link') ): ?>
           <?php while ( have_rows('rcb_footer_link') ) : the_row(); ?>

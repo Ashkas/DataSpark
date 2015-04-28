@@ -34,7 +34,7 @@
         <?php get_template_part( 'templates/component', 'left-sidebar' ); ?>
       </aside><!-- /.sidebar -->
       <?php endif; ?>
-      <?php if (get_field('rhs_sidebar')) : ?>
+      <?php if (get_field('rhs_sidebar') || is_single()) : ?>
         <aside class="sidebar secondary <?php echo roots_sidebar_class(); ?>" role="complementary">
           <?php get_template_part( 'templates/component', 'right-sidebar' ); ?>
         </aside><!-- /.sidebar -->

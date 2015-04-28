@@ -34,6 +34,7 @@ function roots_scripts() {
   wp_register_script('fitvid', get_template_directory_uri() . '/assets/js/plugins/jquery.fitvids.js', array('jquery'), null, false);
   wp_register_script('flexnav', get_template_directory_uri() . '/assets/js/plugins/jquery.flexnav.min.js', array('jquery'), null, true);
   wp_register_script('waypoints', get_template_directory_uri() . '/assets/js/plugins/waypoints.min.js', array('jquery'), null, false);
+  wp_register_script('picturefill', get_template_directory_uri() . '/assets/js/plugins/picturefill.min.js', array('jquery'), null, false);
   wp_register_script('respond', get_template_directory_uri() . '/assets/js/plugins/respond.js', array(), null, true);
   wp_register_script('addthis', '//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-547ea8c67314e281', array(), null, true);
 
@@ -46,6 +47,7 @@ function roots_scripts() {
   wp_enqueue_script('fitvid');
   wp_enqueue_script('flexnav');
   wp_enqueue_script('waypoints');
+  wp_enqueue_script('picturefill');
   wp_enqueue_script('respond');
   wp_enqueue_script('addthis');
 
