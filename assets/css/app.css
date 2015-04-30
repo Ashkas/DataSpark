@@ -587,7 +587,7 @@ body main {
   padding-left: 1.66667%;
   padding-right: 1.66667%;
   padding-left: 1.5em;
-  padding-right: 3.5em;
+  padding-right: 1.5em;
 }
 @media (min-width: 1100px) {
   /* line 4, ../sass/variables/_layout.scss */
@@ -596,28 +596,30 @@ body main {
     float: left;
     padding-left: 1.66667%;
     padding-right: 1.66667%;
+    padding-left: 1.5em;
+    padding-right: 3.5em;
   }
 }
-/* line 11, ../sass/variables/_layout.scss */
+/* line 12, ../sass/variables/_layout.scss */
 body aside {
   width: 100%;
   float: left;
   padding-left: 1.66667%;
   padding-right: 1.66667%;
   padding-left: 1.5em;
-  padding-right: 3.5em;
+  padding-right: 1.5em;
 }
-/* line 16, ../sass/variables/_layout.scss */
+/* line 17, ../sass/variables/_layout.scss */
 body.full-width main {
   width: 100%;
   float: left;
   padding-left: 1.66667%;
   padding-right: 1.66667%;
   padding-left: 1.5em;
-  padding-right: 3.5em;
+  padding-right: 1.5em;
 }
 @media (min-width: 1100px) {
-  /* line 23, ../sass/variables/_layout.scss */
+  /* line 24, ../sass/variables/_layout.scss */
   body.left-sidebar main {
     width: 75%;
     float: left;
@@ -626,9 +628,9 @@ body.full-width main {
     padding-left: 1.66667%;
     padding-right: 1.66667%;
     padding-left: 1.5em;
-    padding-right: 3.5em;
+    padding-right: 1.5em;
   }
-  /* line 28, ../sass/variables/_layout.scss */
+  /* line 29, ../sass/variables/_layout.scss */
   body.left-sidebar aside.primary {
     width: 25%;
     float: left;
@@ -639,7 +641,7 @@ body.full-width main {
   }
 }
 @media (min-width: 1100px) {
-  /* line 38, ../sass/variables/_layout.scss */
+  /* line 39, ../sass/variables/_layout.scss */
   body.right-sidebar main {
     width: 75%;
     float: left;
@@ -648,9 +650,9 @@ body.full-width main {
     padding-left: 1.66667%;
     padding-right: 1.66667%;
     padding-left: 1.5em;
-    padding-right: 3.5em;
+    padding-right: 1.5em;
   }
-  /* line 43, ../sass/variables/_layout.scss */
+  /* line 44, ../sass/variables/_layout.scss */
   body.right-sidebar aside.secondary {
     width: 25%;
     float: left;
@@ -661,27 +663,27 @@ body.full-width main {
   }
 }
 @media (min-width: 768px) {
-  /* line 54, ../sass/variables/_layout.scss */
+  /* line 55, ../sass/variables/_layout.scss */
   body.left-sidebar.right-sidebar aside.primary {
     width: 50%;
     float: left;
     padding-left: 1.66667%;
     padding-right: 1.66667%;
     padding-left: 1.5em;
-    padding-right: 3.5em;
+    padding-right: 1.5em;
   }
-  /* line 59, ../sass/variables/_layout.scss */
+  /* line 60, ../sass/variables/_layout.scss */
   body.left-sidebar.right-sidebar aside.secondary {
     width: 50%;
     float: left;
     padding-left: 1.66667%;
     padding-right: 1.66667%;
     padding-left: 1.5em;
-    padding-right: 3.5em;
+    padding-right: 1.5em;
   }
 }
 @media (min-width: 1100px) {
-  /* line 67, ../sass/variables/_layout.scss */
+  /* line 68, ../sass/variables/_layout.scss */
   body.left-sidebar.right-sidebar main {
     width: 50%;
     float: left;
@@ -690,7 +692,7 @@ body.full-width main {
     padding-left: 1.66667%;
     padding-right: 1.66667%;
   }
-  /* line 71, ../sass/variables/_layout.scss */
+  /* line 72, ../sass/variables/_layout.scss */
   body.left-sidebar.right-sidebar aside.primary {
     width: 25%;
     float: left;
@@ -699,7 +701,7 @@ body.full-width main {
     padding-left: 0;
     padding-right: 0;
   }
-  /* line 76, ../sass/variables/_layout.scss */
+  /* line 77, ../sass/variables/_layout.scss */
   body.left-sidebar.right-sidebar aside.secondary {
     width: 25%;
     float: left;
@@ -2277,7 +2279,7 @@ a:hover, a:focus {
   min-height: 210px;
   max-width: 640px;
   padding-left: 1.5em;
-  padding-right: 3.5em;
+  padding-right: 1.5em;
 }
 @media (min-width: 1100px) {
   /* line 507, ../sass/app.scss */
@@ -2584,7 +2586,7 @@ a:hover, a:focus {
   padding-left: 1.66667%;
   padding-right: 1.66667%;
   padding-left: 1.5em;
-  padding-right: 3.5em;
+  padding-right: 1.5em;
   margin: 0;
   margin-top: 2em;
 }
@@ -3013,7 +3015,7 @@ a:hover, a:focus {
   padding-left: 1.66667%;
   padding-right: 1.66667%;
   padding-left: 1.5em;
-  padding-right: 3.5em;
+  padding-right: 1.5em;
 }
 @media (min-width: 768px) {
   /* line 1097, ../sass/app.scss */
@@ -3052,7 +3054,7 @@ a:hover, a:focus {
   padding-left: 1.66667%;
   padding-right: 1.66667%;
   padding-left: 1.5em;
-  padding-right: 3.5em;
+  padding-right: 1.5em;
 }
 @media (min-width: 768px) {
   /* line 1122, ../sass/app.scss */
