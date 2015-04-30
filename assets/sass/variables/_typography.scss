@@ -138,13 +138,22 @@ $font-stack: "Avenir", Arial;
 body {
   font-weight: 300;
   font-family: $font-stack;
+/*
   p {
     font-size: em-calc(14px);
   }
+*/
 }
 
-h1 {
+h1,h2,h3,h4,h5,h6 {
+  display: block;
+  font-weight: 400;
   line-height: 1.5em;
+  
+  a {
+	  font-size: inherit;
+	  line-height: inherit;
+  }
 }
 h2 {
   font-size:em-calc(18px);
@@ -154,7 +163,7 @@ h2 {
   }
 }
 h3 {
-  font-weight: 400;
+  font-weight: 600;
   font-size:em-calc(20px);
 }
 h4 {
@@ -163,6 +172,11 @@ h4 {
 }
 h5 {
 
+}
+
+.main {
+	font-size: em-calc(15px);
+	line-height: 1.5em;
 }
 
 @font-face {

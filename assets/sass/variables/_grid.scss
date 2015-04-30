@@ -1,6 +1,6 @@
 // Container
 $container-width: 700px;
-@mixin container-padding($padding-left: 1.5em, $padding-right: 1.5em) {
+@mixin container-padding($padding-left: 1.5em, $padding-right: 3.5em) {
   padding-left: $padding-left;
   padding-right: $padding-right;
 }

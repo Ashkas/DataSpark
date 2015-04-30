@@ -45,8 +45,24 @@ if ( ! defined( 'WPINC' ) ) { die; } // If this file is called directly, abort. 
     <?php elseif( get_row_layout() == 'image_cta' ): ?>
 
     <div class="block image">
-      <?php $cta_image = get_image_markup(get_sub_field('image_cta_image'),get_sub_field('image_cta_url')); ?>
-      <?php if($cta_image): ?>
+      <?php //$cta_image = get_image_markup(get_sub_field('image_cta_image'),get_sub_field('image_cta_url'));
+      $thumb_id = get_sub_field('image_cta_image');
+						  
+	  $large_thumb = wp_get_attachment_image_src($thumb_id,'featured-medium');
+	  $small_thumb = wp_get_attachment_image_src($thumb_id,'featured-small');
+	  $alt = get_post_meta($article->ID, '_wp_attachment_image_alt', true);
+	  if($small_thumb): ?>
+	    <picture>
+	    	<a href="<?php echo get_sub_field('image_cta_url'); ?>">
+				<!--[if IE 9]><video style="display: none;"><![endif]-->
+					<source srcset="<?php echo $large_thumb[0] ?>" media="(min-width: 480px)" alt="<?php echo $alt; ?>">
+				<!--[if IE 9]></video><![endif]-->
+				<img srcset="<?php echo $small_thumb[0]; ?>" alt="<?php echo $alt; ?>">
+	    	</a>
+		</picture>
+	  <?php endif;
+      
+      if($cta_image): ?>
         <?php echo $cta_image; ?>
       <?php endif; ?>
     </div> <!-- /.block.image -->
@@ -83,10 +99,20 @@ if ( ! defined( 'WPINC' ) ) { die; } // If this file is called directly, abort. 
 	            foreach($articles as $article): ?>
 					<div class="snippet">
 						<?php if(get_sub_field('display_thumbnails') == TRUE):
-						  $thumb = get_image_markup(get_field('post_thumbnail',$article->ID), get_permalink( $article->ID ),'featured-small');
-						  if($thumb):
-						    echo $thumb;
-						  endif;
+						  
+						  $thumb_id = get_field('post_thumbnail',$article->ID);
+						  
+						  $large_thumb = wp_get_attachment_image_src($thumb_id,'featured-medium');
+						  $small_thumb = wp_get_attachment_image_src($thumb_id,'featured-small');
+						  $alt = get_post_meta($article->ID, '_wp_attachment_image_alt', true);
+						  if($small_thumb): ?>
+						    <picture>
+								<!--[if IE 9]><video style="display: none;"><![endif]-->
+									<source srcset="<?php echo $large_thumb[0] ?>" media="(min-width: 480px)" alt="<?php echo $alt; ?>">
+								<!--[if IE 9]></video><![endif]-->
+								<img srcset="<?php echo $small_thumb[0]; ?>" alt="<?php echo $alt; ?>">
+							</picture>
+						  <?php endif;
 						endif; ?>
 						<h3><a href="<?php echo get_permalink( $article->ID ); ?>"><?php echo $article->post_title; ?></a></h3>
 						<?php if(get_sub_field('show_excerpt') == TRUE):
@@ -114,12 +140,12 @@ if ( ! defined( 'WPINC' ) ) { die; } // If this file is called directly, abort. 
         
 		<?php $args = array(
 			'posts_per_page' => 3,
-			'post_type' => 'inside',
+			'post_type' => 'insight',
 			'tax_query' => array(
 				array(
 				    'taxonomy'  => 'type',
-				    'field'     => 'ID',
-				    'terms' => 'Infographics', 
+				    'field'     => 'slug',
+				    'terms' => 'infographic', 
 				    )
 				),
 		);
@@ -135,26 +161,18 @@ if ( ! defined( 'WPINC' ) ) { die; } // If this file is called directly, abort. 
 										
 		foreach( $query as $post ) :	setup_postdata($post); ?>
 			<div class="snippet">
-				<?php if(get_sub_field('display_thumbnails') == TRUE):
-				  $thumb = get_image_markup(get_field('post_thumbnail',$post->ID), get_permalink( $post->ID ),'featured-small');
+				<?php 
+				  $thumb = get_image_markup(get_field('post_thumbnail',$post->ID), get_permalink( $post->ID ),'featured-medium');
 				  if($thumb):
 				    echo $thumb;
 				  endif;
-				endif; ?>
+				?>
 				<h3><a href="<?php echo get_permalink( $post->ID ); ?>"><?php echo $post->post_title; ?></a></h3>
-				<?php if(get_sub_field('show_excerpt') == TRUE):
-				  if(!empty($post->post_excerpt)): ?>
+				<?php if(!empty($post->post_excerpt)): ?>
 				    <p><?php echo $post->post_excerpt; ?></p>
-				    <?php if(get_sub_field('display_read_more_link') == TRUE): ?>
-				      <p><a class="readmore" href="<?php echo get_permalink( $post->ID ); ?>">More</a></p>
-				    <?php endif;
-				  else: ?>
-				    <p><?php echo wp_trim_words($article->post_content, 20); ?></p>
-				    <?php if(get_sub_field('display_read_more_link') == TRUE): ?>
-				      <p><a class="readmore" href="<?php echo get_permalink( $post->ID ); ?>">More</a></p>
-				    <?php endif;
-				  endif;
-				endif ?>
+				<?php else: ?>
+					<p><?php echo wp_trim_words($post->post_content, 20 ,'...'); ?></p>
+				<?php endif; ?>
 			</div><!-- /.snippet -->
         <?php endforeach; 
             

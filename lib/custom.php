@@ -177,6 +177,9 @@ function get_page_sidebar_classes( $classes ) {
   if(get_field('rhs_sidebar')){
     $classes[] = 'right-sidebar';
   }
+  if(is_single()){
+    $classes[] = 'right-sidebar';
+  }
   if(get_field('display_as_full_width')){
     $classes[] = 'full-width';
   }

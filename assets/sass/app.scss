@@ -139,11 +139,41 @@ a {
     margin-bottom: 2em;
   }
   .block {
+	  
+	  margin-bottom: 2em;
 
     &.info {
       line-height:em-calc(20px, 14px);
       padding:1.5em;
       background:$sidebar-bg;
+      
+      &.download {
+	      padding: 0;
+		  background: none;
+		  
+		  a {
+			  width: 100%;
+			  height: 100%;
+			  display: block;
+			  padding: 2em 1.5em;
+			  font-weight: 400;
+			  color: $base-link-secondary;
+			  background: #f1f1f1;
+			  line-height: 0;
+			  
+			  &:hover, &:focus {
+				  color: white;
+				  background: $base-link-secondary;
+			  }
+			  
+			  &:before {
+				  content: '\e803';
+				  padding-right: 0.875em;
+				  font-size: 1.5em;
+				  font-family: 'fontello';
+			  }
+		  }
+      }
     }
     &.image {
       margin-top:1.5em;
