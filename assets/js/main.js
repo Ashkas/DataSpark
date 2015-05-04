@@ -64,9 +64,27 @@
           if ($(window).width() + scrollbar > breakpoint) {
             if (direction == 'down') {
               $('header.banner').addClass('small');
+              $('div.navigation').removeClass('stick');
             }
             if (direction == 'up') {
               $('header.banner').removeClass('small');
+            }
+          }
+        });
+        
+         // CTA stick for mobile
+        
+        $('.waypoint').waypoint(function(direction) {
+
+          var breakpoint = 760;
+          var scrollbar = (window.innerWidth-$(window).width());
+
+          if ($(window).width() + scrollbar < breakpoint) {
+            if (direction == 'down') {
+              $('div.navigation').addClass('stick');
+            }
+            if (direction == 'up') {
+              $('div.navigation').removeClass('stick');
             }
           }
         });

@@ -96,6 +96,14 @@ body {
     }
   }
 }
+
+embed, img, object, video {
+  //max-width: 100%;
+  max-width: none;
+  width: 100%;
+  //height: auto;
+}
+
 .video {
   iframe {
     width:100%;
@@ -126,6 +134,10 @@ a {
         .related-footer {
 	        margin-bottom: em-calc(20px);
         }
+        
+        .snippet {
+	        border-bottom: 1px solid $base-hr-border;
+        }
       }
       &:first-of-type {
         padding-top:0;
@@ -146,6 +158,11 @@ a {
       line-height:em-calc(20px, 14px);
       padding:1.5em;
       background:$sidebar-bg;
+      
+      .snippet {
+	      
+	      border-bottom: 1px solid #ccc;
+      }
       
       &.download {
 	      padding: 0;
@@ -204,7 +221,6 @@ a {
     .snippet {
 		margin-bottom:em-calc(20px);
 		padding-bottom:em-calc(20px);
-		border-bottom: 1px solid $base-hr-border;
 		
 		&:nth-last-child(2) {
 			border-bottom: none;
@@ -389,6 +405,10 @@ a {
             display: block;
             @include transition(0.3s);
             width:100%;
+            img {
+	            max-width: 100%;
+	            width: auto;
+	        }
           }
           &:hover {
             border-bottom: none;
@@ -407,6 +427,26 @@ a {
           border-bottom: none;
           position: static;
           @include span(8);
+        }
+        
+        &.stick {
+	        margin-bottom: 0;
+		    position: fixed;
+		    top: 0;
+		    z-index: 99999;
+		    
+		    @include breakpoint($tab){
+				position: relative;   
+			}
+		    
+		    #menu-secondary-nav {
+			    
+			    margin: 10px 0px;
+			    
+			    @include breakpoint($tab){
+					margin: 0px;  
+				}
+		    }
         }
       }
     }
@@ -509,7 +549,7 @@ a {
       padding-top: 2em;
       padding-bottom:2em;
       min-height: 210px;
-      max-width: 640px;
+      max-width: 680px;
       
       @include breakpoint($desk){
 	      max-width: 900px;
@@ -527,10 +567,12 @@ a {
         @include vertical-align;
         min-height: none;
       }
-      .headline {
+      h2.headline {
         font-size:em-calc(18px);
         color:#ffffff;
         font-weight: 600;
+        margin-top: 0px;
+        margin-bottom: 15px;
         @include breakpoint($tab) {
           color:inherit;
           font-size:em-calc(34px);
@@ -539,9 +581,11 @@ a {
       .body {
 	      margin-bottom: em-calc(20px);
 	      
+/*
 	      @include breakpoint($tab){
 		  	margin-bottom: em-calc(30px);  
 		  }
+*/
       }
       
       p {
@@ -582,6 +626,7 @@ a {
 			display: initial;
 			background: white;
 			color: $base-link-secondary;
+			position: absolute;
 			//border: 1px solid $base-link-secondary;
 			
 			&:hover, &:focus {

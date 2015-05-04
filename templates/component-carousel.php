@@ -21,10 +21,8 @@ if ( ! defined( 'WPINC' ) ) { die; } // If this file is called directly, abort. 
 	        <?php if($carousel_banner_id): 
 		        
 		        // Images
-		        $banner = wp_get_attachment_image_src($carousel_banner_id, 'large-wide');
-				
-				
-	        ?>
+		        $banner = wp_get_attachment_image_src($carousel_banner_id, 'large-wide');?>
+		        
 	        	<style type="text/css">
 				    .item_image_<?php echo $counter; ?> {
 				        background-image: none;
@@ -44,12 +42,12 @@ if ( ! defined( 'WPINC' ) ) { die; } // If this file is called directly, abort. 
 	            <div class="content">
 	            <?php endif; ?>
 	              <?php if(get_sub_field('pillar_tab_title')): ?>
-	                <div class="headline" data-tab-title="<?php echo wp_trim_words(get_sub_field('pillar_tab_title'), 9); ?>">
-	                  <?php the_sub_field('pillar_title'); ?>
+	                <div data-tab-title="<?php echo wp_trim_words(get_sub_field('pillar_tab_title'), 9); ?>">
+	                	<h2 class="headline"><?php the_sub_field('pillar_title'); ?></h2>
 	                </div>
 	              <?php else: ?>
-	                <div class="headline" data-tab-title="<?php the_sub_field('pillar_title'); ?>">
-	                  <?php the_sub_field('pillar_title'); ?>
+	                <div data-tab-title="<?php the_sub_field('pillar_title'); ?>">
+	                  <h2 class="headline"><?php the_sub_field('pillar_title'); ?></h2>
 	                </div>
 	              <?php endif; ?>
 	              <div class="body">
