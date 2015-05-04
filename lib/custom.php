@@ -75,14 +75,7 @@ add_filter( 'gform_submit_button_1', 'add_conversion_tracking_code', 10, 2);
 
 // Custom image insertion for responsivePicture element
 function responsive_insert_image($html, $id, $caption, $title, $align, $url, $size) {
-
-	$large_wide = wp_get_attachment_image_src($banner_image,'large-wide');
-	$mobile_wide = wp_get_attachment_image_src($banner_image,'large-wide-mobile');
 	
-	$image_meta = wp_get_attachment_metadata($id);
-	
-	// Remove quote marks
-
 	$alt = get_post_meta($id, '_wp_attachment_image_alt', true);
 	$image_url = wp_get_attachment_image_src( $id, $size, false, false );
 	
