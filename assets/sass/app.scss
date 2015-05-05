@@ -550,14 +550,6 @@ a {
       padding-bottom:2em;
       min-height: 210px;
       max-width: 80%;
-      
-      @include breakpoint($desk){
-	      max-width: 900px;
-	  }
-      
-      @include breakpoint($desk-large){
-	      max-width: 1036px;
-	  }
 	      
       @include container-padding();
       @include breakpoint($tab) {
@@ -565,12 +557,19 @@ a {
         color:$base-body-copy;
         padding-right:20%;
         position: relative;
+        @include vertical-align;
 	    top: 45%;
-	    -webkit-transform: translateY(-50%);
-	    -ms-transform: translateY(-50%);
-	    transform: translateY(-50%);
-        min-height: none;
       }
+      
+      @include breakpoint($desk){
+	      max-width: 900px;
+	      top: 50%;
+	  }
+      
+      @include breakpoint($desk-large){
+	      max-width: 1036px;
+	  }
+      
       h2.headline {
         font-size:em-calc(18px);
         color:#ffffff;
