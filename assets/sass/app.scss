@@ -549,7 +549,7 @@ a {
       padding-top: 2em;
       padding-bottom:2em;
       min-height: 210px;
-      max-width: 680px;
+      max-width: 80%;
       
       @include breakpoint($desk){
 	      max-width: 900px;
@@ -564,7 +564,11 @@ a {
         padding:0;
         color:$base-body-copy;
         padding-right:20%;
-        @include vertical-align;
+        position: relative;
+	    top: 45%;
+	    -webkit-transform: translateY(-50%);
+	    -ms-transform: translateY(-50%);
+	    transform: translateY(-50%);
         min-height: none;
       }
       h2.headline {
