@@ -1218,10 +1218,49 @@ a {
    See: http://codex.wordpress.org/CSS#WordPress_Generated_Classes
    ========================================================================== */
 
-.aligncenter { display: block; margin: 0 auto; }
-.alignleft { float: left; }
-.alignright { float: right; }
-figure.alignnone { margin-left: 0; margin-right: 0; }
+figure, picture {
+	margin: 0px 0px 1em;
+}
+
+figcaption {
+	font-size: 80%;
+}
+
+.aligncenter {
+	display: block;	
+}
+
+figure.alignnone {
+	margin-left: 0;
+	margin-right: 0;
+}
+
+@include breakpoint($tab){
+	
+	.aligncenter {
+		display: block;	
+		
+		img, figcaption {
+			
+			display: block;
+			margin: 0px auto;
+			max-width: 300px;
+		}
+	}
+	
+	.alignleft {
+		float: left;
+		margin-right: 20px;
+	}
+	.alignright {
+		float: right;
+		margin-left: 20px;
+	}
+	
+	.alignleft, .alignright {
+		max-width: 300px !important;
+	}
+}
 
 
 

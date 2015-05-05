@@ -15,7 +15,7 @@ function roots_setup() {
 /* Control compression of files uploaded, set JPG compression to 70% */
 
 add_filter( 'jpeg_quality', 'jpeg_full_quality' );
-function jpeg_full_quality( $quality ) { return 70; }
+function jpeg_full_quality( $quality ) { return 75; }
 
   // Add post thumbnails (http://codex.wordpress.org/Post_Thumbnails)
   add_theme_support('post-thumbnails');

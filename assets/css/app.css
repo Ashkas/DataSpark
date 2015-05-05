@@ -3172,27 +3172,55 @@ a:hover, a:focus {
    See: http://codex.wordpress.org/CSS#WordPress_Generated_Classes
    ========================================================================== */
 /* line 1221, ../sass/app.scss */
+figure {
+  margin: 0px 0px 1em;
+}
+
+/* line 1225, ../sass/app.scss */
+figcaption {
+  font-size: 80%;
+}
+
+/* line 1229, ../sass/app.scss */
 .aligncenter {
   display: block;
-  margin: 0 auto;
 }
 
-/* line 1222, ../sass/app.scss */
-.alignleft {
-  float: left;
-}
-
-/* line 1223, ../sass/app.scss */
-.alignright {
-  float: right;
-}
-
-/* line 1224, ../sass/app.scss */
+/* line 1233, ../sass/app.scss */
 figure.alignnone {
   margin-left: 0;
   margin-right: 0;
 }
 
+@media (min-width: 768px) {
+  /* line 1240, ../sass/app.scss */
+  .aligncenter {
+    display: block;
+  }
+  /* line 1243, ../sass/app.scss */
+  .aligncenter img, .aligncenter figcaption {
+    display: block;
+    margin: 0px auto;
+    max-width: 300px;
+  }
+
+  /* line 1251, ../sass/app.scss */
+  .alignleft {
+    float: left;
+    margin-right: 20px;
+  }
+
+  /* line 1255, ../sass/app.scss */
+  .alignright {
+    float: right;
+    margin-left: 20px;
+  }
+
+  /* line 1260, ../sass/app.scss */
+  .alignleft, .alignright {
+    max-width: 300px !important;
+  }
+}
 /* ==========================================================================
    Media Queries
    ========================================================================== */

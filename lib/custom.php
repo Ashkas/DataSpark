@@ -79,17 +79,20 @@ function responsive_insert_image($html, $id, $caption, $title, $align, $url, $si
 	$alt = get_post_meta($id, '_wp_attachment_image_alt', true);
 	$image_url = wp_get_attachment_image_src( $id, $size, false, false );
 	
+	if($caption) $figcation = '<figcaption>'.$caption.'</figcaption>';
+	
 	if($size == 'large') :
 		$image_url_mobile = wp_get_attachment_image_src( $id, 'medium', false, false );
 	
-		$custom_insert = "<picture>";
+		$custom_insert = "<picture class='size-".$size." align".$align."'>";
 		$custom_insert .= '<!--[if IE 9]><video style="display: none;"><![endif]-->
 					<source srcset="'.$image_url[0].'" media="(min-width: 760px)">
 				<!--[if IE 9]></video><![endif]-->';
 		$custom_insert .= "<img src='".$image_url_mobile[0]."' alt='$alt' class='size-".$size."' />";
+		$custom_insert .= $figcation;
 		$custom_insert .= "</picture>";
 	else: 
-		$custom_insert = "<img src='".$image_url[0]."' alt='".$alt."' class='size-".$size." align$align $size' />";
+		$custom_insert = "<figure  class='size-".$size." align".$align."'> <img src='".$image_url[0]."' alt='".$alt."' class='size-".$size." $size' />".$figcation."</figure>";
 	endif;
 	
 	return str_replace('<br>', "", $custom_insert); // <br> inserted by WP
