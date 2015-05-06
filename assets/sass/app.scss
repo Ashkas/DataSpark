@@ -159,6 +159,22 @@ a {
       padding:1.5em;
       background:$sidebar-bg;
       
+      .related-footer {
+	      
+	      .cta_button {
+		      width: 100%;
+		      display: block !important;
+		      text-align: center;
+		      max-width: 272px;
+		      margin-bottom: 20px;
+		      
+		      @include breakpoint($tab) {
+			      max-width: none;
+			      margin-bottom: 0px;
+		      }
+	      }
+      }
+      
       .snippet {
 	      
 	      border-bottom: 1px solid #ccc;
