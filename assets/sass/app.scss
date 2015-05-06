@@ -293,10 +293,43 @@ a {
     }
 */
     &.small {
-      .bottombar {
-        margin-top: -55px;
-        @include transition(0.3s);
-      }
+    	.bottombar {
+	        //margin-top: -55px;
+	        @include transition(0.3s);
+	        
+	        @include breakpoint($tab){
+		    	.nav-main {
+					> ul {
+						> li {
+						    > a {
+							    padding: 0.4em 1em;
+						    }
+						    
+						    .touch-button {
+							    padding: 0.4em 0em; 
+						    }
+						}
+					}
+				}    
+		    }
+	        
+	        @include breakpoint($desk){
+		        .nav-main {
+					> ul {
+						> li {
+						    > a {
+							    padding: 0.5em 1.5em;
+						    }
+						    
+						    .touch-button {
+							    padding: 0.5em 0em; 
+						    }
+						}
+					}
+				}
+			}
+		}
+	
       .topbar {
         .wrap {
           .navigation {
