@@ -45,9 +45,16 @@ li {
   font-size: em-calc(14px);
 }
 .gform_wrapper {
-  max-width: 100%;
-  background:#f1f1f3;
-  padding:1.5em 2em;
+	
+	background:$base-hr-border;
+	padding: 0.5em 0.5em 1em;
+	
+	@include breakpoint($tab){
+		max-width: 100%;
+		background:#f1f1f3;
+		padding:1em 1em 1.5em;	
+	}
+	
   .gfield_required {
     color:$base-body-copy;
   }
@@ -96,6 +103,42 @@ li {
       }
     }
   }
+  
+  .gform_footer {
+		input.button, input[type=submit] {
+			@include transition(0.3s);
+			width: 100%;
+			max-width: 300px;
+			color: white;
+			border: none;
+			padding: 0.5em 0em;
+			background: $base-link-secondary;
+			line-height: 1.5em;
+			text-align: center;
+			margin: 0px auto;
+			display: block;
+			
+			&:hover, &:focus {
+				background: $base-link-secondary;
+				text-decoration: none;
+				border-bottom: none;
+			}
+			
+			@include breakpoint($tab){
+				padding: 0.75em 1em;
+				max-width: 200px;
+				margin: 0px;
+				float: right;	
+	        }
+		}
+		
+		&:after {
+			content:'';
+		    display:block;
+		    clear: both;
+		}
+	}
+  
   ul.left_label, ul.top_label {
     li {
       .gfield_label {
@@ -114,9 +157,13 @@ li {
       }
       .ginput_container {
           @include span(12);
+          padding-left: 0px;
+          padding-right: 0px;
           padding-bottom: 1.5em;
           @include breakpoint($tab) {
             @include span(9);
+            padding-left: 0px;
+            padding-right: 0px;
           }
           input {
           width:100%;
@@ -130,4 +177,31 @@ li {
       }
     }
   }
+}
+
+// Fix up typography
+#input_1_2 {
+	
+	label {
+		
+		font-size: 80%;
+	}
+}
+
+// Layout for Gforms
+.gform_wrapper .ginput_complex .ginput_left {
+    float: left;
+    width: 50%;
+}
+.gform_wrapper .ginput_complex .ginput_right {
+    float: right;
+    width: 49%;
+}
+.gform_wrapper ul li::before, .gform_wrapper ul li::after, .gform_wrapper ul.gform_fields {
+	clear: both;
+}
+
+// Validation
+.gform_validation_container {
+	display: none;
 }
