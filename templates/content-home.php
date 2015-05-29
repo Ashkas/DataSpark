@@ -17,7 +17,7 @@ if ( ! defined( 'WPINC' ) ) { die; } // If this file is called directly, abort. 
     <?php  while ( have_rows('hp_video') ) : the_row(); ?>
       <?php $video_url = get_sub_field('hp_video_url'); ?>
       <?php if($video_url): ?>
-        <?php $cover_thumb = get_image_url(get_sub_field('hp_video_cover_image'), 'video-cover-thumb'); ?>
+        <?php $cover_thumb = get_image_url(get_sub_field('hp_video_cover_image'), 'featured-medium'); ?>
         <?php if($cover_thumb): ?>
           <?php $video_thumb = get_video_thumb($video_url,$cover_thumb); ?>
         <?php else: ?>
@@ -62,7 +62,8 @@ $args = array(
 	        
 	        // Get the image and clean it up
         	$image_id = get_field('post_thumbnail'); 
-	        $image = wp_get_attachment_image_src($image_id, 'featured-medium');
+	        $image_mobile = wp_get_attachment_image_src($image_id, 'featured-medium');
+			$image_desk = wp_get_attachment_image_src($image_id, 'featured-small');
 			
 			// Other variables
 			$permalink = get_permalink($post->ID);
@@ -70,7 +71,14 @@ $args = array(
 	        
 			if($image_id): ?>
           <div class="graphic">
-            <a href="<?php echo $permalink; ?>"><img src="<?php echo $image[0]; ?>" alt="<?php echo $title; ?>" title="<?php echo $title; ?>"/></a>
+            <a href="<?php echo $permalink; ?>">
+	           <picture>
+					<!--[if IE 9]><video style="display: none;"><![endif]-->
+						<source srcset="<?php echo $image_desk[0]; ?>" media="(min-width: 760px)">
+					<!--[if IE 9]></video><![endif]-->
+					<img src='<?php echo $image_mobile[0]; ?>' alt="<?php echo $title; ?>" title="<?php echo $title; ?>" />
+				</picture>
+            </a>
           </div>
         <?php endif; ?>
         <div class="title">

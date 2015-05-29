@@ -1,16 +1,19 @@
 <?php while (have_posts()) : the_post(); ?>
 	<?php if( (have_rows('contact_block'))):
+		
+		echo '<div class="single_block margin_top"><a class="cta_button cta_button_alt" href="#contact-form">Enquiry Form</a></div>';
+		
 		while ( have_rows('contact_block') ) : the_row();
 			if(get_row_layout() == 'blocks'):
 				
 				if(get_sub_field('columns') == '1'):
-					echo '<div class="full_block">';
+					echo '<div class="full_block"><div class="full_block block_layout">';
 				else:
-					echo '<div class="half_block">';
+					echo '<div class="full_block"><div class="half_block block_layout">';
 				endif;
 				
 					if(get_sub_field('column_title')):
-						echo '<h2>'.get_sub_field('column_title').'</h2>';
+						echo '<h2 class="underline">'.get_sub_field('column_title').'</h2>';
 					endif; 
 					// check if the repeater field has rows of data
 					if( have_rows('column_1_content') ):
@@ -25,17 +28,29 @@
 					        if(get_sub_field('text')):
 					        	echo '<span>'.get_sub_field('text').'</span>';
 					        endif;
+					        
+					        if(get_sub_field('Map')):
+					        	
+					        	$location = get_sub_field('google_map');
+
+								if( !empty($location) ):
+								?>
+								<div class="acf-map">
+									<div class="marker" data-lat="<?php echo $location['lat']; ?>" data-lng="<?php echo $location['lng']; ?>"></div>
+								</div>
+								<?php endif;
+					        endif;
 					    endwhile;
 					endif;
 					
 				if(get_sub_field('columns') == '1'):
 					echo '';
 				else:
-					echo '</div><div class="half_block">';
+					echo '</div><div class="half_block block_layout">';
 				endif;
 					
 					if(get_sub_field('column_2_title')):
-						echo '<h2>'.get_sub_field('column_2_title').'</h2>';
+						echo '<h2 class="underline">'.get_sub_field('column_2_title').'</h2>';
 					endif; 
 					// check if the repeater field has rows of data
 					if( have_rows('column_2_content') ):
@@ -50,11 +65,24 @@
 					        if(get_sub_field('text')):
 					        	echo '<span>'.get_sub_field('text').'</span>';
 					        endif;
+					        
+					        if(get_sub_field('Map')):
+					        	
+					        	$location = get_sub_field('google_map');
+
+								if( !empty($location) ):
+								?>
+								<div class="acf-map">
+									<div class="marker" data-lat="<?php echo $location['lat']; ?>" data-lng="<?php echo $location['lng']; ?>"></div>
+								</div>
+								<?php endif;
+					        endif;
+					        
 					    endwhile;
 					endif;
 					
 				if(get_sub_field('columns')):
-					echo '</div><div class="clearfix"></div>';
+					echo '</div><div class="clearfix"></div></div>';
 				endif;
 				
 			endif; //get_layout_row

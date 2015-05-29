@@ -175,8 +175,16 @@ h5 {
 }
 
 .main {
-	font-size: em-calc(15px);
+	font-size: em-calc(16px);
 	line-height: 1.5em;
+	
+	@include breakpoint($tab) {
+		font-size: em-calc(17px);
+	}
+	
+	@include breakpoint($desk) {
+		font-size: em-calc(18px);
+	}
 }
 
 @font-face {

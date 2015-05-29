@@ -30,12 +30,14 @@ function roots_scripts() {
   wp_register_script('dataspark_scripts', get_template_directory_uri() . '/assets/js/main.js', array(), '0fc6af96786d8f267c8686338a34cd38', true);
   wp_register_script('dataspark_carousel', get_template_directory_uri() . '/assets/js/carousel.js', array('slick'), null, true);
   wp_register_script('picturefill', get_template_directory_uri() . '/assets/js/plugins/picturefill.min.js', array('jquery'), null, false);
+  wp_register_script('dataspark_gmap', get_template_directory_uri() . '/assets/js/acf-google.js', array('jquery'), null, false);
   wp_register_script('slick', get_template_directory_uri() . '/assets/js/plugins/slick.min.js', array('jquery'), null, false);
   wp_register_script('fitvid', get_template_directory_uri() . '/assets/js/plugins/jquery.fitvids.js', array('jquery'), null, false);
   wp_register_script('flexnav', get_template_directory_uri() . '/assets/js/plugins/jquery.flexnav.min.js', array('jquery'), null, true);
   wp_register_script('waypoints', get_template_directory_uri() . '/assets/js/plugins/waypoints.min.js', array('jquery'), null, false);
   wp_register_script('picturefill', get_template_directory_uri() . '/assets/js/plugins/picturefill.min.js', array('jquery'), null, false);
   wp_register_script('respond', get_template_directory_uri() . '/assets/js/plugins/respond.js', array(), null, true);
+  wp_register_script('smooth-scroll', get_template_directory_uri() . '/assets/js/smooth-scroll.js', array(), null, true);
   wp_register_script('addthis', '//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-547ea8c67314e281', array(), null, true);
 
   wp_enqueue_script('modernizr');
@@ -48,7 +50,12 @@ function roots_scripts() {
   wp_enqueue_script('flexnav');
   wp_enqueue_script('waypoints');
   wp_enqueue_script('picturefill');
+  //if(is_page('Contact us')):
+	wp_enqueue_script( 'google_map', 'https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false', array(), '3', true );
+	wp_enqueue_script('dataspark_gmap'); 
+  //endif;
   wp_enqueue_script('respond');
+  wp_enqueue_script('smooth-scroll');
   wp_enqueue_script('addthis');
 
 }
