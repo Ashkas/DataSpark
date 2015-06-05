@@ -22,7 +22,7 @@ function jpeg_full_quality( $quality ) { return 75; }
   // set_post_thumbnail_size(150, 150, false);
   add_image_size('featured-small', 300, 194, array('center', 'center'));
   add_image_size('featured-medium', 500, 281, array('center', 'center'));
-  add_image_size('featured-large', 900, 394, array('center', 'center'));
+  add_image_size('featured-large', 1240, 533, array('center', 'center'));
   
   add_image_size('insight-thumb', 250, 162, array('center', 'center')); 
   add_image_size('video-cover-thumb', 650, 355, array('center', 'center'));

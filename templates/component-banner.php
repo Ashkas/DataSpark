@@ -26,4 +26,7 @@ if ( ! defined( 'WPINC' ) ) { die; } // If this file is called directly, abort. 
 			<img srcset="<?php echo $mobile_wide[0]; ?>">
 		</picture>
 	</div>
+	
+	
+	
 <?php endif; ?>

@@ -56,7 +56,10 @@ function roots_scripts() {
   //endif;
   wp_enqueue_script('respond');
   wp_enqueue_script('smooth-scroll');
-  wp_enqueue_script('addthis');
+  
+  if(is_single()):
+	  wp_enqueue_script('addthis');
+  endif;
 
 }
 add_action('wp_enqueue_scripts', 'roots_scripts', 100);

@@ -17,7 +17,10 @@
     if(is_page_template('template-home.php') || is_page_template('template-landing.php')) {
       get_template_part( 'templates/component', 'carousel' );
       $breadcrumb_class = "no-breadcrumbs";
-    } else {
+    } elseif(is_single()) {
+      get_template_part( 'templates/component', 'single-header' );
+      // breadcrumb is included in the single header template
+    }  else {
       get_template_part( 'templates/component', 'banner' );
       // Breadcrumbs for all pages but home & landing templates.
       get_template_part( 'templates/component', 'breadcrumbs' );
@@ -44,6 +47,14 @@
           <?php get_template_part( 'templates/component', 'right-sidebar' ); ?>
         </aside><!-- /.sidebar -->
       <?php endif; ?>
+      
+		<?php if (is_single()) : ?>
+			<div class="clearfix"></div>
+			<aside class="bottom_blocks <?php echo roots_sidebar_class(); ?>" role="complementary">
+			  <?php get_template_part( 'templates/component', 'single-bottom-blocks' ); ?>
+			</aside><!-- /.sidebar -->
+		<?php endif; ?>
+      
     </div><!-- /.content -->
   </div><!-- /.wrap -->
 

@@ -14,7 +14,7 @@
 if ( ! defined( 'WPINC' ) ) { die; } // If this file is called directly, abort. ?>
 
     <?php if( get_row_layout() == 'download' ): ?>
-      <div class="block info download">
+      <div class="block info download single_block">
         <?php if( get_sub_field('file_upload') ): ?>
           <?php if( get_sub_field('file_link_title')): ?>
             <a href="<?php the_sub_field('file_upload'); ?>" ><?php the_sub_field('file_link_title'); ?></a>
@@ -83,7 +83,7 @@ if ( ! defined( 'WPINC' ) ) { die; } // If this file is called directly, abort. 
     </div> <!-- /.block.menu -->
 
     <?php elseif( get_row_layout() == 'related_content_block' && !is_single()): ?>
-      <div class="block info article">
+      <div class="block article">
 	      
         <?php if( get_sub_field('rcb_section_title')): ?>
           <h4><?php the_sub_field('rcb_section_title'); ?></h4>
@@ -97,49 +97,41 @@ if ( ! defined( 'WPINC' ) ) { die; } // If this file is called directly, abort. 
 	            $articles = get_sub_field($insight_type);
 	            
 	            foreach($articles as $article): ?>
-					<div class="snippet">
-						<?php if(get_sub_field('display_thumbnails') == TRUE):
-						  	
+	            
+	            	<div class="snippet">
+						<?php 		
+						if(get_sub_field('display_thumbnails') == TRUE):		  
 							$thumb_id = get_field('post_thumbnail',$article->ID);
-							$small_thumb = wp_get_attachment_image_src($thumb_id,'featured-small');
-						    
+							$small_thumb = wp_get_attachment_image_src($thumb_id,'thumbnail');
+						    $large_thumb = wp_get_attachment_image_src($thumb_id,'featured-medium');
+							  
 							if($small_thumb): 
-								$width_check = 300;	
-								list($width, $height) = getimagesize($small_thumb[0]);
-								if ($width_check == $width) {
-									$small_thumb = wp_get_attachment_image_src($thumb_id, 'featured-small');
-									$large_thumb = wp_get_attachment_image_src($thumb_id,'featured-medium');
-								} else {
-									$small_thumb = false;
-								}
-							endif;						 
-						 
-						  if($small_thumb): 
-						  	 $alt = get_post_meta($article->ID, '_wp_attachment_image_alt', true);?>
-						    <picture>
-						    	<?php if($large_thumb): ?>
-									<!--[if IE 9]><video style="display: none;"><![endif]-->
-										<source srcset="<?php echo $large_thumb[0] ?>" media="(min-width: 480px)" alt="<?php echo $alt; ?>">
-									<!--[if IE 9]></video><![endif]-->
-								<?php endif; //large_thumb ?>
-								<img srcset="<?php echo $small_thumb[0]; ?>" alt="<?php echo $alt; ?>">
-							</picture>
-						  <?php endif;
-						endif; ?>
-						<h3><a href="<?php echo get_permalink( $article->ID ); ?>"><?php echo $article->post_title; ?></a></h3>
-						<?php if(get_sub_field('show_excerpt') == TRUE):
-						  if(!empty($article->post_excerpt)): ?>
-						    <p><?php echo $article->post_excerpt; ?></p>
-						    <?php if(get_sub_field('display_read_more_link') == TRUE): ?>
-						      <p><a class="readmore" href="<?php echo get_permalink( $article->ID ); ?>">More</a></p>
-						    <?php endif;
-						  else: ?>
-						    <p><?php echo wp_trim_words($article->post_content, 20); ?></p>
-						    <?php if(get_sub_field('display_read_more_link') == TRUE): ?>
-						      <p><a class="readmore" href="<?php echo get_permalink( $article->ID ); ?>">More</a></p>
-						    <?php endif;
-						  endif;
-						endif ?>
+								$alt = get_post_meta($article->ID, '_wp_attachment_image_alt', true);?>
+								<picture class="archive_story_left">
+									<?php if($small_thumb): ?>
+										<!--[if IE 9]><video style="display: none;"><![endif]-->
+											<source srcset="<?php echo $small_thumb[0] ?>" media="(min-width: 768px)" alt="<?php echo $alt; ?>">
+										<!--[if IE 9]></video><![endif]-->
+									<?php endif; //large_thumb ?>
+									<img srcset="<?php echo $large_thumb[0]; ?>" alt="<?php echo $alt; ?>">
+								</picture>
+							<?php endif; ?>
+							 
+							<?php if($small_thumb): 
+								echo '<div class="archive_story_right">';
+							endif; ?>
+								<h4><a href="<?php echo get_permalink( $article->ID ); ?>"><?php echo $article->post_title; ?></a></h4>
+							<?php if($small_thumb): 
+								echo '</div>';
+							endif;
+						else: //display_thumbnails ?>
+							<h4><a href="<?php echo get_permalink( $article->ID ); ?>"><?php echo $article->post_title; ?></a></h4>
+						<?php endif; //display_thumbnails ?>
+							<div class="clearfix"></div>
+							<?php if(!empty($article->post_excerpt)): ?>
+							    <p><?php echo $article->post_excerpt; ?></p>
+							<?php endif; ?>
+						
 					</div><!-- /.snippet -->
 	            <?php endforeach; 
 		            
@@ -172,12 +164,12 @@ if ( ! defined( 'WPINC' ) ) { die; } // If this file is called directly, abort. 
         endif; //$insight_type
         
         elseif( is_single()): ?>
-      <div class="block info article">
+      <div class="block article article_sidebar">
 	      
-      <h4>DataSpark infographics</h4>
+      <h3 class="sidebar_title">DataSpark infographics</h3>
         
 		<?php $args = array(
-			'posts_per_page' => 3,
+			'posts_per_page' => 4,
 			'post_type' => 'insight',
 			'tax_query' => array(
 				array(
@@ -190,45 +182,41 @@ if ( ! defined( 'WPINC' ) ) { die; } // If this file is called directly, abort. 
 		
 		$query = null;
 	    $query = get_posts( $args );
-	    $width_check = 1280;
 										
 		foreach( $query as $post ) :	setup_postdata($post); ?>
 			<div class="snippet">
 				<?php 				  
 				$thumb_id = get_field('post_thumbnail',$post->ID);
-				$small_thumb = wp_get_attachment_image_src($thumb_id,'featured-small');
-			    
-				if($small_thumb): 
-					$width_check = 300;	
-					list($width, $height) = getimagesize($small_thumb[0]);
-					if ($width_check == $width) {
-						$small_thumb = wp_get_attachment_image_src($thumb_id, 'featured-small');
-						$large_thumb = wp_get_attachment_image_src($thumb_id,'featured-medium');
-					} else {
-						$small_thumb = false;
-					}
-				endif;	
+				$small_thumb = wp_get_attachment_image_src($thumb_id,'thumbnail');
+			    $large_thumb = wp_get_attachment_image_src($thumb_id,'featured-medium');
 				  
 				if($small_thumb): 
-					$alt = get_post_meta($article->ID, '_wp_attachment_image_alt', true);?>
-					<picture>
-						<?php if($large_thumb): ?>
+					$alt = get_post_meta($post->ID, '_wp_attachment_image_alt', true);?>
+					<picture class="archive_story_left">
+						<?php if($small_thumb): ?>
 							<!--[if IE 9]><video style="display: none;"><![endif]-->
-								<source srcset="<?php echo $large_thumb[0] ?>" media="(min-width: 480px)" alt="<?php echo $alt; ?>">
+								<source srcset="<?php echo $small_thumb[0] ?>" media="(min-width: 768px)" alt="<?php echo $alt; ?>">
 							<!--[if IE 9]></video><![endif]-->
 						<?php endif; //large_thumb ?>
-						<img srcset="<?php echo $small_thumb[0]; ?>" alt="<?php echo $alt; ?>">
+						<img srcset="<?php echo $large_thumb[0]; ?>" alt="<?php echo $alt; ?>">
 					</picture>
 				<?php endif; ?>
-				  
-				<h3><a href="<?php echo get_permalink( $post->ID ); ?>"><?php echo $post->post_title; ?></a></h3>
+				 
+				<?php if($small_thumb): 
+					echo '<div class="archive_story_right">';
+				endif; ?>
+					<h4><a href="<?php echo get_permalink( $post->ID ); ?>"><?php echo $post->post_title; ?></a></h4>
+				<?php if($small_thumb): 
+					echo '</div>';
+				endif; ?>
+				<div class="clearfix"></div>
 				<?php if(!empty($post->post_excerpt)): ?>
 				    <p><?php echo $post->post_excerpt; ?></p>
-				<?php else: ?>
-					<p><?php echo wp_trim_words($post->post_content, 20 ,'...'); ?></p>
 				<?php endif; ?>
+				
 			</div><!-- /.snippet -->
         <?php endforeach; 
+	    echo '<div class="clearfix"></div>';
             
         wp_reset_postdata();
         
@@ -242,19 +230,5 @@ if ( ! defined( 'WPINC' ) ) { die; } // If this file is called directly, abort. 
             <?php endif; ?>
           <?php endwhile; ?>
         <?php endif; ?>
-        <?php if(get_field('header_cta', 'option')): ?>
-			<div class="mobile_device">
-				<?php while(has_sub_field('header_cta', 'option')): ?>
-					<?php $link = get_cta_link(get_sub_field('header_cta_title'),get_sub_field('header_cta_url')); ?>
-					<?php if($link): ?>
-						<?php if(get_sub_field('header_cta_web_only') == TRUE): ?>
-						
-		                <?php else: ?>
-			                <?php echo $link; ?>
-		                <?php endif; ?>
-		            <?php endif; ?>
-				<?php endwhile; ?>
-			</div><!--.button-->
-		<?php endif; // header_cta ?>
       </div> <!-- /.block.article -->
     <?php endif; ?>

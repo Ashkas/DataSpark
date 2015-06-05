@@ -27,3 +27,17 @@
 		top: 50%; 
 	}
 }
+
+// Used for separating blocks in the site
+@mixin block-border {
+	margin-bottom: em-calc(20px);
+	padding-bottom: em-calc(20px);
+	border-bottom: 1px solid $header-underline;
+}
+
+// Used for separating headings, like h2, from content
+@mixin title-block-border {
+	margin-bottom: em-calc(20px);
+	padding-bottom: em-calc(20px);
+	border-bottom: 1px solid $header-underline;
+}

@@ -52,15 +52,32 @@
   clear: both;
 }
 
-
-.mobile_device {
+.mobile_device, .small_device {
 	display: block !important;
 	visibility: visible !important;
 }
 
+.large_device {
+		display: none !important;
+		visibility: hidden !important;	
+	}
+
 @include breakpoint($tab){
 	
 	.mobile_device {
+		display: none !important;
+		visibility: hidden !important;	
+	}
+	
+	.large_device {
+		display: block !important;
+		visibility: visible !important;
+	}
+}
+
+@include breakpoint($desk){
+	
+	.small_device {
 		display: none !important;
 		visibility: hidden !important;	
 	}
@@ -154,11 +171,11 @@ a {
 }
 .sidebar {
   @include breakpoint($tab){
-    margin-bottom: 2em;
+    margin-bottom: 1em;
   }
   .block {
 	  
-	  margin-bottom: 2em;
+	  //margin-bottom: 2em;
 
     &.info {
       line-height:em-calc(20px, 14px);
@@ -247,7 +264,7 @@ a {
 		&:nth-last-child(2) {
 			border-bottom: none;
 			padding-bottom: 0px;
-			margin-bottom:em-calc(40px);
+			//margin-bottom:em-calc(40px);
 		}
 		
       a {
@@ -848,7 +865,8 @@ a {
 	}
 }
 .breadcrumbs-wrap {
-  @include container;  
+	padding: 0px 1.5em;
+	@include container;  
   
   p {
 	margin: 0px;
@@ -877,9 +895,11 @@ a {
       }
     }
   }
-  @include breakpoint($desk){
-    @include site-maxwidth;
-  }
+	@include breakpoint($desk){
+	  
+	  	padding: 0px;
+		@include site-maxwidth;
+	}
 }
 
 /* ==========================================================================
@@ -1135,6 +1155,214 @@ a {
 		@include site-maxwidth;
 	}
 }
+
+/* ==========================================================================
+   Custom Article page - added June 2015
+   ========================================================================== */
+  
+.big_banner {
+	
+	width: 100%;
+	position: relative;
+	
+	img {
+		
+	}
+	
+	.banner_page_title {
+		
+		padding: 0px 1.5em;
+		
+		h1 {
+			color: black;
+			margin: 20px 0px 10px; 
+			font-size: em-calc(22px);
+		}
+		
+		h2 {
+			color: $base-title;
+			font-weight: 300;
+			margin: 0px 00px 20px; 
+			font-size: em-calc(16px);
+			font-style: italic;
+		}
+		
+		@include breakpoint($tab){
+			padding: 0px;
+			@include container;
+			background: rgba(0,0,0,0.15);
+			position: absolute;
+			top: 50%;
+			left: 5%;
+			right: 5%;
+			width: 100%;
+			
+			h1 {
+				margin: 20px; 
+				font-size: em-calc(36px);
+			}
+			
+			h2 {
+				margin: 0px 20px 20px; 
+				font-size: em-calc(22px);
+				color: black;
+			}
+		}
+		
+		@include breakpoint($desk){
+			@include site-maxwidth;
+			//bottom: em-calc(60px);
+			
+			h1 {
+				font-size: em-calc(42px);
+			}
+			
+			h2 {
+				font-size: em-calc(28px);
+			}
+		}
+	}
+}
+
+// The stories in the right sidebar in desktop
+
+.article_sidebar {
+	
+	h3.sidebar_title, h4.sidebar_title {
+		margin-top: 0px;
+		@include block-border;
+		font-size: em-calc(22px);
+	}
+	
+	.snippet {
+		
+		border-bottom: 1px solid $base-hr-border;
+		
+		h4 {
+			margin-bottom: 0px;
+		}	
+	}
+	
+	@include breakpoint($tab){
+		
+		picture, img {
+			margin: 0px !important;
+		}
+		
+		h4 {
+			font-size: em-calc(16px);
+		}	
+		
+		.snippet {
+			
+			width: 48%;
+			margin-right: 4%;
+			float: left;
+			border-bottom: none;
+			
+			&:nth-child(odd) {
+				
+				margin-right: 0px;
+			}
+		}
+		
+		.archive_story_left {
+	
+			float: left;
+			width: 100%*(90/260);
+			margin-right: 100%*(20/260); 
+		}
+		
+		.archive_story_right {
+			
+			float: right;
+			width: 100%*(150/260);
+		
+		}
+	}	
+	
+	@include breakpoint($desk){
+		
+		.snippet {
+			width: 100%;
+			clear: none;
+			margin-right: 0px;
+			border-bottom: 1px solid $base-hr-border;
+		}
+	}
+}
+
+// The articles at the bottom of the single template
+.bottom_blocks {
+	
+	
+	@include breakpoint($desk){
+
+	}
+}
+
+// Articles blocks at the bottoms of the article page
+
+.article_blocks {
+	
+	@include block-border;
+	
+	p, h4 {
+		
+		margin-bottom: 0px;
+	}
+	
+	@include breakpoint($tab){
+			
+		width: 48%;
+		margin-right: 4%;
+		float: left;
+		border-bottom: none;
+		
+		&:nth-child(odd) {
+			
+			margin-right: 0px;
+		}
+	}
+	
+	@include breakpoint($desk){
+		
+		width: 100%*(230/980);
+		margin-right: 100%*(20/980);
+		
+		&:nth-child(odd) {
+			
+			margin-right: 100%*(20/980);
+		}
+		
+		&:nth-child(4n+1) {
+			
+			margin-right: 0px;
+		}
+		
+		&:nth-child(4n+2) {
+			
+			clear: left;
+		}
+	}
+}
+
+/* ==========================================================================
+   add.This
+   ========================================================================== */
+
+//Hide the widget on load, use jQuery in footer to display it later
+.addthis-smartlayers-desktop {
+	
+	display: none;
+}
+
+// After displaying the widget, hide it again in the header
+.display_none {
+	
+	display: none;
+}
+   
 
 /* ==========================================================================
    Primary Content

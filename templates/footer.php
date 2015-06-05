@@ -111,3 +111,24 @@ document.createElement( "picture" );
 </script>
 
 <?php wp_footer(); ?>
+
+<?php if(is_single()): ?>
+<script>
+	
+	// Only load the add.This sidebar once past the top image if the featured image is set
+	$('.load-sidebar-addthis').waypoint(function(direction) {        
+	    if (direction == 'down') {
+			$('.addthis-smartlayers-desktop').fadeIn( "slow", function() {});
+			$('.addthis-smartlayers-desktop').removeClass('display_none');
+	    }
+	    if (direction == 'up') {
+		    //$( ".addthis-smartlayers-desktop" ).fadeOut( "slow", function() {});
+			$('.addthis-smartlayers-desktop').addClass('display_none');
+			$('.addthis-smartlayers-desktop').fadeOut( "slow", function() {});
+	    }
+       
+	});
+
+</script>
+
+<?php endif; ?>
