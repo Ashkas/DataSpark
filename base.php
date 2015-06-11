@@ -20,7 +20,10 @@
     } elseif(is_single()) {
       get_template_part( 'templates/component', 'single-header' );
       // breadcrumb is included in the single header template
-    }  else {
+    } elseif(is_page()) {
+      get_template_part( 'templates/page', 'header' );
+      // breadcrumb is included in the header template
+    } else {
       get_template_part( 'templates/component', 'banner' );
       // Breadcrumbs for all pages but home & landing templates.
       get_template_part( 'templates/component', 'breadcrumbs' );
