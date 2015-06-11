@@ -37,7 +37,7 @@
 
 // Used for separating headings, like h2, from content
 @mixin title-block-border {
-	margin-bottom: em-calc(20px);
-	padding-bottom: em-calc(5px);
+	margin-bottom: rem-calc(20px);
+	padding-bottom: rem-calc(5px);
 	border-bottom: 1px solid $header-underline;
 }

@@ -87,7 +87,7 @@
 				
 			endif; //get_layout_row
 		endwhile;
-	endif;
+	endif; //contact_block
 	
   the_content();
   
@@ -117,22 +117,29 @@ endwhile; ?>
       <div class="latest">
         <?php while ( $query->have_posts() ): ?>
           <?php $query->the_post(); ?>
-          <div class="item">
-            <?php $news_thumb = get_field('post_thumbnail'); ?>
-            <?php if($news_thumb): ?>
-              <div class="graphic">
-                <a href="<?php the_permalink(); ?>"><?php echo wp_get_attachment_image($news_thumb,'insight-thumb'); ?></a>
-              </div>
-            <?php endif; ?>
-            <div class="title">
-              <h2><a href="<?php the_permalink(); ?>"><?php the_title() ?></a></h2>
-            </div>
-            <?php if(has_excerpt()): ?>
-              <p><?php echo wp_trim_words(get_the_content(), 10); ?></p>
-            <?php else: ?>
-              <p><?php echo wp_trim_words(get_the_content(), 35); ?></p>
-            <?php endif; ?>
-          </div>
+			<div class="item">
+				<?php $news_thumb = get_field('post_thumbnail'); ?>
+				<?php if($news_thumb): ?>
+					<div class="graphic">
+					<a href="<?php the_permalink(); ?>"><?php echo wp_get_attachment_image($news_thumb,'insight-thumb'); ?></a>
+					</div>
+				<?php endif; ?>
+				<?php if($news_thumb): ?>
+					<div class="text_block">
+				<?php endif; ?>
+					<div class="title">
+						<h2><a href="<?php the_permalink(); ?>"><?php the_title() ?></a></h2>
+					</div>
+					<?php if(has_excerpt()): ?>
+					<p><?php echo wp_trim_words(get_the_content(), 10); ?></p>
+					<?php else: ?>
+					<p><?php echo wp_trim_words(get_the_content(), 35); ?></p>
+					<?php endif; ?>
+				<?php if($news_thumb): ?>
+					</div>
+				<?php endif; ?>
+				<div class="clearfix"></div>
+			</div>
         <?php endwhile; ?>
       </div>
     <?php endif; ?>
