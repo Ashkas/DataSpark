@@ -34,7 +34,7 @@ if ( ! defined( 'WPINC' ) ) { die; } // If this file is called directly, abort. 
           </div> <!-- .video-container -->
         <?php endif; ?>
     <h2><?php the_sub_field('hp_video_title'); ?></h2>
-    <p><?php the_sub_field('hp_video_body'); ?></p>
+    <?php the_sub_field('hp_video_body'); ?>
     <?php endwhile; ?>
   </div><!-- .video-wrap -->
 <?php endif; ?>
@@ -82,7 +82,7 @@ $args = array(
           </div>
         <?php endif; ?>
         <div class="title">
-          <h2><a href="<?php echo $permalink; ?>"><?php echo $title; ?></a></h2>
+          <h3><a href="<?php echo $permalink; ?>"><?php echo $title; ?></a></h3>
         </div>
         <div class="clearfix"></div>
       </div>
