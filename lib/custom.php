@@ -41,6 +41,16 @@ function get_image_markup($imgID = '',$url = '',$size = 'full'){
   }
 }
 
+// Function to search a nested array for a value. In this case used to search ACF flexible content. Checking if a layout type is being used.
+// http://stackoverflow.com/questions/6661530/php-multi-dimensional-array-search
+function search_flex_content_block($name, $array) {
+	   foreach ($array as $key => $val) {
+	       if ($val['acf_fc_layout'] === $name) {
+	           return $key;
+	       }
+	   }
+	   return null;
+	}
 
 /**
  * @param $imgID
