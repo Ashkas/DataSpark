@@ -1,0 +1,207 @@
+$form-input-text: unquote('input[type="text"],input[type="password"],input[type="date"],input[type="datetime"],input[type="datetime-local"],input[type="month"],input[type="week"],input[type="email"],input[type="number"],input[type="search"],input[type="tel"],input[type="time"],input[type="url"]');
+li {
+  #{$form-input-text},
+  select,
+  textarea {
+    width: 100% !important;
+    padding:1em !important;
+    font-size: em-calc(14px) !important;
+    border:1px solid #d5d8d9 !important;
+    &:focus {
+      border:1px solid #2783c1 !important;
+    }
+  }
+  &.gfield_error {
+    #{$form-input-text},
+    select,
+    textarea {
+      border: 1px solid $error-border !important;
+      background: $error-message-bg;
+    }
+  }
+}
+.gform_wrapper .gfield_error .gfield_label {
+  color: $error-text;
+}
+.gform_wrapper .description_above .gfield_description {
+  padding:0 10px;
+}
+.gform_wrapper li.gfield.gfield_error.gfield_contains_required {
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+}
+.gform_wrapper li.gfield.gfield_error.gfield_contains_required div.ginput_container {
+  margin-top:0;
+  padding-bottom:0.4em
+}
+.gform_wrapper div.validation_error {
+  font-size:1em;
+  color:$error-text;
+}
+.gform_wrapper .top_label .gfield_error {
+  width:100%;
+}
+.gform_wrapper .gfield_checkbox li label, .gform_wrapper .gfield_radio li label {
+  font-size: em-calc(14px);
+}
+.gform_wrapper {
+	
+	background:$base-hr-border;
+	padding: 0.5em 0.5em 1em;
+	
+	@include breakpoint($tab){
+		max-width: 100%;
+		background:#f1f1f3;
+		padding:1em 1em 1.5em;	
+	}
+	
+  .gfield_required {
+    color:$base-body-copy;
+  }
+  .gfield_html {
+   @include span(12);
+  }
+
+  ul {
+    list-style: none;
+    padding:0;
+    margin-right: 0 !important;
+  }
+  .gfield_label {
+    font-size: em-calc(14px);
+    font-family: $font-stack;
+    font-weight: 300 !important;
+  }
+  .gform_fields {
+    .gfield {
+      margin-bottom:1em;
+    }
+    .gfield_error {
+      background: none !important;
+      margin-bottom: 0 !important;
+      border:none !important;
+      .validation_message {
+        color:$error-text;
+        margin-top: 0;
+        margin-right: 1em;
+        float: right;
+        padding-top: 0 !important;
+        padding-left: 1em !important;
+        white-space: nowrap;
+        @include breakpoint($tab){
+          padding-left:0 !important;
+        }
+        @include breakpoint($desk){
+          margin-right: 0.5em;
+        }
+        &:before {
+          content:'\e807';
+          font-family:'fontello';
+          font-size: 1em;
+          color:$error-text;
+        }
+      }
+    }
+  }
+  
+  .gform_footer {
+		input.button, input[type=submit] {
+			@include transition(0.3s);
+			width: 100%;
+			max-width: 300px;
+			color: white;
+			border: none;
+			padding: 0.5em 0em;
+			background: $base-link-secondary;
+			line-height: 1.5em;
+			text-align: center;
+			margin: 0px auto;
+			display: block;
+			
+			&:hover, &:focus {
+				background: $base-link-primary;
+				text-decoration: none;
+				border-bottom: none;
+			}
+			
+			@include breakpoint($tab){
+				padding: 0.75em 1em;
+				max-width: 200px;
+				margin: 0px;
+				float: right;	
+	        }
+		}
+		
+		&:after {
+			content:'';
+		    display:block;
+		    clear: both;
+		}
+	}
+  
+  ul.left_label, ul.top_label {
+    li {
+      .gfield_label {
+        margin:0;
+        @include span(12);
+        @include breakpoint($tab){
+          @include span(3);
+        }
+      }
+      .gfield_description {
+        @include span(12);
+        margin-left: 0;
+        @include breakpoint($tab) {
+          @include span(3);
+        }
+      }
+      .ginput_container {
+          @include span(12);
+          padding-left: 0px;
+          padding-right: 0px;
+          padding-bottom: 1.5em;
+          @include breakpoint($tab) {
+            @include span(9);
+            padding-left: 0px;
+            padding-right: 0px;
+          }
+          input {
+          width:100%;
+          max-width: 100%;
+        }
+        .gfield_radio {
+          li {
+            padding:0.1em !important;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Fix up typography
+.ginput_container {
+	
+	label {
+		
+		font-size: 80%;
+	}
+}
+
+// Layout for Gforms
+.gform_wrapper .ginput_complex .ginput_left {
+    float: left;
+    width: 50%;
+}
+.gform_wrapper .ginput_complex .ginput_right {
+    float: right;
+    width: 49%;
+}
+.gform_wrapper ul li::before, .gform_wrapper ul li::after, .gform_wrapper ul.gform_fields {
+	clear: both;
+}
+
+// Validation
+.gform_validation_container {
+	display: none;
+}

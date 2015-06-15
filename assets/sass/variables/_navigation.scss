@@ -1,0 +1,201 @@
+.nav-main {
+  position:absolute;
+  z-index: 99960;
+  top:0;
+  right:0;
+  width:100%;
+  height: 100%;
+  font-weight: 600;
+  clear:right;
+  @include breakpoint($tab) {
+    position:relative;
+    text-align: center;
+  }
+  .flex-menu-wrap {
+    height:100%;
+  }
+  > ul {
+    width: 100%;
+    display:none;
+    list-style: none;
+    margin: 0;
+    padding:0;
+    @include box-shadow(5px 8px 19px -8px rgba(0, 0, 0, 0.75));
+    @include breakpoint($tab){
+      @include box-shadow(none);
+    }
+    &.flexnav-show {
+      display:block;
+    }
+    @include breakpoint($tab) {
+      display: table;
+      display: flex;
+    }
+    > li {
+      display: list-item;
+      @include breakpoint($tab) {
+        display: table-cell; // fallback for non-flexbox
+		display: flex;
+		flex: 1 1 auto; // distribute space evenly
+      }
+      
+      &.active {
+	     
+        > a:before {
+			position: absolute;
+			content:'';
+			height:0px;
+			top:0;
+			left:0;
+			width:100%;
+			@include brand-gradient;
+			@include transition(0.3s);
+			height:3px;
+        }
+      }
+      
+      > a {
+        padding: 1em 1.5em;
+        display: block;
+        position: relative;
+        @include breakpoint($tab){
+          padding: 1em 0.75em;
+          font-size: em-calc(14px);
+          &:before {
+            position: absolute;
+            content:'';
+            height:0px;
+            top:0;
+            left:0;
+            width:100%;
+            @include brand-gradient;
+            @include transition(0.3s);
+          }
+          &:hover,&:focus {
+            text-decoration: none;
+            border-bottom:none;
+            color:$base-link-primary;
+            &:before {
+              height:3px;
+            }
+          }
+        }
+        @include breakpoint($desk){
+          font-size: em-calc(16px);
+          padding: 1em 1.5em;
+        }
+      }
+      &.dropdown {
+        z-index: 99999;
+        position: relative;
+        background:#ffffff;
+      }
+      .dropdown-menu {
+        position: relative;
+        display: none;
+        list-style: none;
+        padding:0;
+        padding-top:1px;
+        @include breakpoint($tab){
+          @include box-shadow(5px 8px 19px -8px rgba(0, 0, 0, 0.75));
+          position: absolute;
+          top: 100%;
+          z-index: 9999;
+          right: 0px;
+        }
+        li {
+          a {
+            padding: 1em 1.5em;
+            white-space: nowrap;
+            display: block;
+            color: $menu-dropdown-links;
+            font-size: em-calc(14px);
+            &:hover, &:focus {
+              color: $base-link-secondary;
+              text-decoration: none;
+              border-bottom: none;
+            }
+          }
+        }
+      }
+    }
+  }
+  ul {
+    li {
+      a {
+        background: #ffffff;
+        &:hover, &:focus {
+          text-decoration: none;
+          border-bottom: none;
+        }
+      }
+      ul {
+        li {
+          &.dropdown {
+            .touch-button {
+              display:none !important;
+            }
+            ul {
+              display:none !important;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+li, .menu-button {
+  position:relative;
+  .touch-button {
+    position: absolute;
+    z-index: 999;
+    top: 0;
+    right:0;
+    padding: 1em 1.5em;
+    display: inline-block;
+    text-align: center;
+    cursor: pointer;
+    background: rgba(0,0,0,0.1);
+    font-weight: 400;
+    @include breakpoint($tab) {
+      padding:1em 0;
+      background: none;
+    }
+    @include breakpoint($desk){
+      right: 1em;
+    }
+    &:after {
+      font-family:'fontello';
+      content:"\e801";
+      display: block;
+      font-size: 1em;
+    }
+    .navicon {
+      font-size: 16px;
+      position: relative;
+      top: 1em;
+      color: #666;
+    }
+  }
+}
+.menu-button {
+  z-index: 99999;
+  @include breakpoint($tab) {
+    display:none;
+  }
+  .touch-button {
+    background: none;
+    font-size: 2em;
+    padding: 0.8em;
+    color:$base-link-primary;
+    &:after {
+      font-family: 'fontello';
+      content: "\e800";
+    }
+  }
+  position: relative;
+  display: block;
+  padding: 1em;
+  cursor: pointer;
+}

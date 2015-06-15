@@ -1,0 +1,43 @@
+%brand-gradient {
+  background-color: #3dbaea; // Old browsers
+  @include filter-gradient(#3dbaea, #dd1669, horizontal); // IE6-8
+  // IE9 SVG, needs conditional override of 'filter' to 'none'
+  $experimental-support-for-svg: true;
+  @include background-image(linear-gradient(left, #3dbaea 0%,#134b95 35%,#dd1669 100%));
+}
+@mixin brand-gradient {
+  background-color: #3dbaea; // Old browsers
+  @include filter-gradient(#3dbaea, #dd1669, horizontal); // IE6-8
+  // IE9 SVG, needs conditional override of 'filter' to 'none'
+  $experimental-support-for-svg: true;
+  @include background-image(linear-gradient(left, #3dbaea 0%,#134b95 35%,#dd1669 100%));
+}
+@mixin site-maxwidth {
+  max-width:1036px;
+}
+
+@mixin vertical-align {
+  position: relative;
+  top: 45%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  
+	@include breakpoint($desk){ 
+		top: 50%; 
+	}
+}
+
+// Used for separating blocks in the site
+@mixin block-border {
+	margin-bottom: rem-calc(20px);
+	padding-bottom: rem-calc(20px);
+	border-bottom: 1px solid $base-hr-border;
+}
+
+// Used for separating headings, like h2, from content
+@mixin title-block-border {
+	margin-bottom: rem-calc(20px);
+	padding-bottom: rem-calc(5px);
+	border-bottom: 1px solid $header-underline;
+}
