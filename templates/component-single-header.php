@@ -30,7 +30,7 @@ if($banner_image):
 		</div>
 		
 		 <header class="banner_page_title">
-			<h1 class="entry-title"><?php the_title(); ?></h1>
+			<h1 class="entry-title"><?php echo roots_title(); ?></h1>
 			<?php get_template_part('templates/entry-meta'); ?>
 		</header>
 		
@@ -43,7 +43,7 @@ if($banner_image):
 	<?php get_template_part( 'templates/component', 'breadcrumbs' ); ?>
 	<div class="content">
 		<header class="banner_page_title">
-			<h1 class="entry-title"><?php the_title(); ?></h1>
+			<h1 class="entry-title"><?php echo roots_title(); ?></h1>
 			<?php get_template_part('templates/entry-meta'); ?>
 		</header>
 	</div>
