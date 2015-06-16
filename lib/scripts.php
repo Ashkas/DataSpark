@@ -59,9 +59,10 @@ function roots_scripts() {
   wp_enqueue_script('respond');
   wp_enqueue_script('smooth-scroll');
   
-  if(is_single()):
-	  wp_enqueue_script('addthis');
-  endif;
+  //if(is_single()):
+	wp_enqueue_script( 'addthis_widget', 'http://s7.addthis.com/js/250/addthis_widget.js#pubid=urPubID', array('jquery'), "1.0.0", 'all' );
+	wp_enqueue_script('addthis');
+  //endif;
 
 }
 add_action('wp_enqueue_scripts', 'roots_scripts', 100);

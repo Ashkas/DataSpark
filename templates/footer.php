@@ -41,30 +41,40 @@
 	    </div>
 	<?php endif; //if $section_title || $section_expert || $section_body ?>
 	
-    <div class="clients">
-      <div class="content wrap">
-        <?php if(get_field('footer_our_clients_title', 'option')): ?>
-          <h2><?php the_field('footer_our_clients_title', 'option'); ?></h2>
-        <?php endif; ?>
-        <?php if(get_field('footer_clients', 'option')): ?>
-          <div class="client-carousel">
-            <?php while(has_sub_field('footer_clients', 'option')): ?>
-              <?php $image = get_image_markup(
-                get_sub_field('footer_client_logo'),
-                get_sub_field('footer_client_link'),
-                'full'
-              );
-              ?>
-              <?php if($image): ?>
-                <div class="client-logo">
-                  <?php echo $image; ?>
-                </div>
-              <?php endif; ?>
-            <?php endwhile; ?>
-          </div>
-        <?php endif; ?>
-      </div>
+	<?php if(get_field('footer_clients', 'option')): ?>
+	    <div class="clients">
+	      <div class="content wrap">
+	        <?php if(get_field('footer_our_clients_title', 'option')): ?>
+	          <h2><?php the_field('footer_our_clients_title', 'option'); ?></h2>
+	        <?php endif; ?>
+	        <?php if(get_field('footer_clients', 'option')): ?>
+	          <div class="client-carousel">
+	            <?php while(has_sub_field('footer_clients', 'option')): ?>
+	              <?php $image = get_image_markup(
+	                get_sub_field('footer_client_logo'),
+	                get_sub_field('footer_client_link'),
+	                'full'
+	              );
+	              ?>
+	              <?php if($image): ?>
+	                <div class="client-logo">
+	                  <?php echo $image; ?>
+	                </div>
+	              <?php endif; ?>
+	            <?php endwhile; ?>
+	          </div>
+	        <?php endif; ?>
+	      </div>
+	    </div>
+	<?php endif; ?>
+	
+    <div class="social_bar">
+		<div class="content wrap">
+			<!-- Go to www.addthis.com/dashboard to customize your tools -->
+			<div class="addthis_horizontal_follow_toolbox"></div>
+		</div>
     </div>
+	
     <div class="bottom-bar">
       <div class="content wrap">
         <?php if(get_field('footer_links', 'option')): ?>
