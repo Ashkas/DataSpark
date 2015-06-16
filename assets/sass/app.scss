@@ -107,13 +107,13 @@ html {
 body {
   color: $base-body-copy;
   @include breakpoint($tab){
-    margin-top:142px;
+    margin-top:129px;
     &.menu-small {
       margin-top:127px;
     }
   }
   @include breakpoint($desk){
-    margin-top:142px;
+    margin-top:141px;
     &.admin-bar {
       margin-top:110px;
     }
@@ -1242,8 +1242,13 @@ a {
 	width: 100%;
 	position: relative;
 	
+	picture {
+		display: block;
+		margin: 0px;
+	}
+	
 	img {
-		
+		display: block;
 	}
 	
 	.banner_page_title {
@@ -1267,9 +1272,9 @@ a {
 		@include breakpoint($tab){
 			padding: 0px;
 			@include container;
-			background: rgba(0,0,0,0.15);
+			background: rgba(0,0,0,0.3);
 			position: absolute;
-			top: 40%;
+			top: 30%;
 			left: 5%;
 			right: 5%;
 			width: 100%;

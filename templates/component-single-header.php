@@ -14,12 +14,14 @@ if ( ! defined( 'WPINC' ) ) { die; } // If this file is called directly, abort.
 
 $banner_image = get_field('banner_image');
 if($banner_image): 
+	$xlarge_wide = wp_get_attachment_image_src($banner_image,'featured-xlarge');
 	$large_wide = wp_get_attachment_image_src($banner_image,'featured-large');
 	$mobile_wide = wp_get_attachment_image_src($banner_image,'featured-medium');?>
 	
 	<div class="big_banner">
 		<picture>
 			<!--[if IE 9]><video style="display: none;"><![endif]-->
+				<source srcset="<?php echo $xlarge_wide[0] ?>" media="(min-width: 1100px)">
 				<source srcset="<?php echo $large_wide[0] ?>" media="(min-width: 760px)">
 			<!--[if IE 9]></video><![endif]-->
 			<img srcset="<?php echo $mobile_wide[0]; ?>">
