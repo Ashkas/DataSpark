@@ -1378,9 +1378,8 @@ a {
 // The articles at the bottom of the single template
 .bottom_blocks {
 	
-	
 	@include breakpoint($desk){
-
+		padding: 0px;
 	}
 }
 
@@ -1507,6 +1506,13 @@ a {
 		max-width: none;
 		width: 100%;
 	}
+	
+	h2, h3, p {
+		
+		&:first-child {
+			margin-top: 0px;
+		}
+	}
 }
 
 /* ==========================================================================
@@ -1536,48 +1542,54 @@ a {
   }
   .container {
     clear:both;
-    .clients {
-      clear:both;
-      padding:1em 0;
-      background:$footer-bg;
-      .content {
-        @include breakpoint($tab){
-          padding-bottom: 2em;
-        }
-      }
-      .client-carousel {
-        margin-top: 3em;
-      }
-      h2 {
-        text-align: center;
-      }
-      .client-logo {
-        @include span(3);
-
-        a {
-          img {
-            @include transition(0.3s);
-            margin:0 auto;
-            -webkit-filter: grayscale(100%);
-            -moz-filter: grayscale(100%);
-            -ms-filter: grayscale(100%);
-            -o-filter: grayscale(100%);
-            filter: grayscale(100%);
-            filter: url(../img/grayscale.svg); /* Firefox 4+ */
-            filter: gray; /* IE 6-9 */
-          }
-          &:hover, &:focus {
-            img {
-              -webkit-filter: grayscale(0);
-              -moz-filter: grayscale(0);
-              -ms-filter: grayscale(0);
-              -o-filter: grayscale(0);
-              filter: none;
-            }
-          }
-        }
-      }
+    
+	.clients {
+		clear:both;
+		padding:1em 0;
+		background:$footer-bg;
+		.content {
+			@include breakpoint($tab){
+			  //padding-bottom: 2em;
+			}
+		}
+		.client-carousel {
+			margin-top: 3em;
+		}
+		h2 {
+			text-align: center;
+		}
+		.client-logo {
+			@include span(3);
+		
+			a {
+			  img {
+			    @include transition(0.3s);
+			    margin:0 auto;
+			    -webkit-filter: grayscale(100%);
+			    -moz-filter: grayscale(100%);
+			    -ms-filter: grayscale(100%);
+			    -o-filter: grayscale(100%);
+			    filter: grayscale(100%);
+			    filter: url(../img/grayscale.svg); /* Firefox 4+ */
+			    filter: gray; /* IE 6-9 */
+			  }
+			  &:hover, &:focus {
+			    img {
+			      -webkit-filter: grayscale(0);
+			      -moz-filter: grayscale(0);
+			      -ms-filter: grayscale(0);
+			      -o-filter: grayscale(0);
+			      filter: none;
+			    }
+			  }
+			}
+		}
     }
+    
+    .social_bar {
+    	background: $footer-social-bg;
+    }
+    
     .contact-info {
       text-align: center;
       @include span(12);
@@ -1588,6 +1600,7 @@ a {
     .bottom-bar {
       .footer-links {
         list-style: none;
+        margin: 0px;
         @include span(12);
         @include container-padding();
         @include breakpoint($tab) {
