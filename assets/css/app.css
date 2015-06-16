@@ -3561,9 +3561,20 @@ a:hover, a:focus {
 }
 /* line 1589, ../sass/app.scss */
 .content-info .container .social_bar {
-  background: #e6e6e6;
+  background: #ccc;
+  padding: 0.1em 1.5em 1em;
 }
-/* line 1593, ../sass/app.scss */
+@media (min-width: 768px) {
+  /* line 1589, ../sass/app.scss */
+  .content-info .container .social_bar {
+    padding: 0.1em 0 1em;
+  }
+}
+/* line 1597, ../sass/app.scss */
+.content-info .container .social_bar a:hover, .content-info .container .social_bar:focus {
+  border: none;
+}
+/* line 1602, ../sass/app.scss */
 .content-info .container .contact-info {
   text-align: center;
   width: 100%;
@@ -3572,12 +3583,12 @@ a:hover, a:focus {
   padding-right: 1.66667%;
 }
 @media (min-width: 768px) {
-  /* line 1593, ../sass/app.scss */
+  /* line 1602, ../sass/app.scss */
   .content-info .container .contact-info {
     margin-bottom: 4em;
   }
 }
-/* line 1601, ../sass/app.scss */
+/* line 1610, ../sass/app.scss */
 .content-info .container .bottom-bar .footer-links {
   list-style: none;
   margin: 0px;
@@ -3589,34 +3600,35 @@ a:hover, a:focus {
   padding-right: 1.5em;
 }
 @media (min-width: 768px) {
-  /* line 1601, ../sass/app.scss */
+  /* line 1610, ../sass/app.scss */
   .content-info .container .bottom-bar .footer-links {
     padding-right: 0;
+    padding-left: 0px;
     width: 50%;
     float: left;
   }
 }
-/* line 1610, ../sass/app.scss */
+/* line 1620, ../sass/app.scss */
 .content-info .container .bottom-bar .footer-links li {
   display: inline-block;
   padding-right: 1.75rem;
   margin: 0.75em 0;
 }
-/* line 1614, ../sass/app.scss */
+/* line 1624, ../sass/app.scss */
 .content-info .container .bottom-bar .footer-links li:last-of-type {
   padding-right: 0;
 }
-/* line 1617, ../sass/app.scss */
+/* line 1627, ../sass/app.scss */
 .content-info .container .bottom-bar .footer-links li a {
   font-weight: 400;
   font-size: 0.875rem;
 }
-/* line 1620, ../sass/app.scss */
+/* line 1630, ../sass/app.scss */
 .content-info .container .bottom-bar .footer-links li a:hover, .content-info .container .bottom-bar .footer-links li a:focus {
   text-decoration: none;
   border-bottom: none;
 }
-/* line 1627, ../sass/app.scss */
+/* line 1637, ../sass/app.scss */
 .content-info .container .bottom-bar .disclaimer {
   font-weight: 400;
   font-size: 0.75rem;
@@ -3628,20 +3640,20 @@ a:hover, a:focus {
   padding-right: 1.5em;
 }
 @media (min-width: 768px) {
-  /* line 1627, ../sass/app.scss */
+  /* line 1637, ../sass/app.scss */
   .content-info .container .bottom-bar .disclaimer {
     width: 50%;
     float: left;
   }
 }
-/* line 1635, ../sass/app.scss */
+/* line 1645, ../sass/app.scss */
 .content-info .container .bottom-bar .disclaimer .footer-logo {
   display: inline-block;
   margin: 1.25rem 0;
   float: left;
 }
 @media (min-width: 768px) {
-  /* line 1635, ../sass/app.scss */
+  /* line 1645, ../sass/app.scss */
   .content-info .container .bottom-bar .disclaimer .footer-logo {
     width: 100%;
     float: left;
@@ -3650,18 +3662,18 @@ a:hover, a:focus {
   }
 }
 @media (min-width: 1100px) {
-  /* line 1635, ../sass/app.scss */
+  /* line 1645, ../sass/app.scss */
   .content-info .container .bottom-bar .disclaimer .footer-logo {
     width: 33.33333%;
     float: left;
   }
 }
-/* line 1645, ../sass/app.scss */
+/* line 1655, ../sass/app.scss */
 .content-info .container .bottom-bar .disclaimer .footer-logo img {
   max-height: 40px;
   width: auto;
 }
-/* line 1650, ../sass/app.scss */
+/* line 1660, ../sass/app.scss */
 .content-info .container .bottom-bar .disclaimer p {
   display: inline-block;
   float: left;
@@ -3672,7 +3684,7 @@ a:hover, a:focus {
   padding-left: 0;
 }
 @media (min-width: 768px) {
-  /* line 1650, ../sass/app.scss */
+  /* line 1660, ../sass/app.scss */
   .content-info .container .bottom-bar .disclaimer p {
     margin-top: 0;
     width: 100%;
@@ -3682,14 +3694,14 @@ a:hover, a:focus {
   }
 }
 @media (min-width: 1100px) {
-  /* line 1650, ../sass/app.scss */
+  /* line 1660, ../sass/app.scss */
   .content-info .container .bottom-bar .disclaimer p {
     width: 66.66667%;
     float: left;
     margin-top: 3rem;
   }
 }
-/* line 1668, ../sass/app.scss */
+/* line 1678, ../sass/app.scss */
 .content-info .brand-bar {
   height: 8px;
   clear: both;
@@ -3699,52 +3711,52 @@ a:hover, a:focus {
    WordPress Generated Classes
    See: http://codex.wordpress.org/CSS#WordPress_Generated_Classes
    ========================================================================== */
-/* line 1681, ../sass/app.scss */
+/* line 1691, ../sass/app.scss */
 figure, picture {
   margin: 0px 0px 1em;
 }
 
-/* line 1685, ../sass/app.scss */
+/* line 1695, ../sass/app.scss */
 figcaption {
   font-size: 80%;
 }
 
-/* line 1689, ../sass/app.scss */
+/* line 1699, ../sass/app.scss */
 .aligncenter {
   display: block;
 }
 
-/* line 1693, ../sass/app.scss */
+/* line 1703, ../sass/app.scss */
 figure.alignnone {
   margin-left: 0;
   margin-right: 0;
 }
 
 @media (min-width: 768px) {
-  /* line 1700, ../sass/app.scss */
+  /* line 1710, ../sass/app.scss */
   .aligncenter {
     display: block;
   }
-  /* line 1703, ../sass/app.scss */
+  /* line 1713, ../sass/app.scss */
   .aligncenter img, .aligncenter figcaption {
     display: block;
     margin: 0px auto;
     max-width: 300px;
   }
 
-  /* line 1711, ../sass/app.scss */
+  /* line 1721, ../sass/app.scss */
   .alignleft {
     float: left;
     margin-right: 20px;
   }
 
-  /* line 1715, ../sass/app.scss */
+  /* line 1725, ../sass/app.scss */
   .alignright {
     float: right;
     margin-left: 20px;
   }
 
-  /* line 1720, ../sass/app.scss */
+  /* line 1730, ../sass/app.scss */
   .alignleft, .alignright {
     max-width: 300px !important;
   }
