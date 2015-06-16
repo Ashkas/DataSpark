@@ -1245,6 +1245,7 @@ a {
 	picture {
 		display: block;
 		margin: 0px;
+		position: relative;
 	}
 	
 	img {
@@ -1280,7 +1281,7 @@ a {
 			width: 100%;
 			
 			h1 {
-				margin: 20px; 
+				margin: 20px 20px 0px; 
 				font-size: rem-calc(36px);
 				color: white;
 			}

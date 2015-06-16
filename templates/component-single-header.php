@@ -25,16 +25,16 @@ if($banner_image):
 				<source srcset="<?php echo $large_wide[0] ?>" media="(min-width: 760px)">
 			<!--[if IE 9]></video><![endif]-->
 			<img srcset="<?php echo $mobile_wide[0]; ?>">
-		</picture>
-		
-		<div class="mobile_device">
-			<?php get_template_part( 'templates/component', 'breadcrumbs' ); ?>
-		</div>
-		
-		 <header class="banner_page_title">
-			<h1 class="entry-title"><?php echo roots_title(); ?></h1>
-			<?php get_template_part('templates/entry-meta'); ?>
-		</header>
+			
+			<div class="mobile_device">
+				<?php get_template_part( 'templates/component', 'breadcrumbs' ); ?>
+			</div>
+			
+			 <header class="banner_page_title">
+				<h1 class="entry-title"><?php echo roots_title(); ?></h1>
+				<?php get_template_part('templates/entry-meta'); ?>
+			</header>
+		</picture>		
 		
 		<div class="large_device">
 			<?php get_template_part( 'templates/component', 'breadcrumbs' ); ?>
