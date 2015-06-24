@@ -4,6 +4,9 @@ body {
   main {
     @include span(12);
     @include container-padding();
+    @include breakpoint($tab){
+		padding: 0px;
+	}
     @include breakpoint($desk){
       @include span(9);
       @include container-padding(1.5em, 3.5em)

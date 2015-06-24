@@ -941,9 +941,11 @@ a {
       }
     }
   }
-	@include breakpoint($desk){
-	  
+  
+  	@include breakpoint($tab) {
 	  	padding: 0px;
+  	}
+	@include breakpoint($desk){
 		@include site-maxwidth;
 	}
 }
@@ -1236,6 +1238,15 @@ a {
 /* ==========================================================================
    Custom Article page - added June 2015
    ========================================================================== */
+
+.banner_page_title {
+	
+	padding: 0px 1.5em;
+	
+	@include breakpoint($tab){
+		padding: 0px;
+	}
+}
   
 .big_banner {
 	
