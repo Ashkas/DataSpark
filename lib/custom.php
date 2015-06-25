@@ -92,7 +92,7 @@ function responsive_insert_image($html, $id, $caption, $title, $align, $url, $si
 	if($caption) $figcation = '<figcaption>'.$caption.'</figcaption>';
 	
 	if($size == 'large') :
-		$image_url_mobile = wp_get_attachment_image_src( $id, 'medium', false, false );
+		$image_url_mobile = wp_get_attachment_image_src( $id, 'large', false, false );
 	
 		$custom_insert = "<picture class='size-".$size." align".$align."'>";
 		$custom_insert .= '<!--[if IE 9]><video style="display: none;"><![endif]-->
