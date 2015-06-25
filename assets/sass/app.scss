@@ -968,16 +968,16 @@ a {
 }
 
 .single_block {
-	margin-bottom: gutter(2em);
+	margin-bottom: 2em;
 }
 
 .margin_top {
-	margin-top: gutter(1em);
+	margin-top: 2em;
 }
 
 .block_layout {
 	
-	margin-bottom: gutter(1em);
+	margin-bottom: 2em;
 	
 	label {
 		width: span(2 of 5.5);
@@ -1398,6 +1398,13 @@ a {
 // Articles blocks at the bottoms of the article page
 
 .article_blocks {
+	
+	a {
+		
+		&:hover, &:focus {
+			border-bottom: none;
+		}
+	}
 	
 	@include block-border;
 	
